@@ -10,12 +10,13 @@
 		37E3B3942A50484300453170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3932A50484300453170 /* AppDelegate.swift */; };
 		37E3B3962A50484300453170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3952A50484300453170 /* SceneDelegate.swift */; };
 		37E3B3982A50484300453170 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3972A50484300453170 /* ViewController.swift */; };
-		37E3B39B2A50484300453170 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B3992A50484300453170 /* Main.storyboard */; };
 		37E3B39D2A50484700453170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B39C2A50484700453170 /* Assets.xcassets */; };
 		37E3B3A02A50484700453170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B39E2A50484700453170 /* LaunchScreen.storyboard */; };
 		37E3B3A92A504F5400453170 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 37E3B3A82A504F5400453170 /* Alamofire */; };
 		37E3B3AF2A50504500453170 /* TvShowsLandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3AD2A50504500453170 /* TvShowsLandingVC.swift */; };
 		37E3B3B02A50504500453170 /* TvShowsLandingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B3AE2A50504500453170 /* TvShowsLandingVC.xib */; };
+		37E3B3B22A50550D00453170 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3B12A50550D00453170 /* Coordinator.swift */; };
+		37E3B3B42A50587000453170 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3B32A50587000453170 /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,12 +24,13 @@
 		37E3B3932A50484300453170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E3B3952A50484300453170 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		37E3B3972A50484300453170 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		37E3B39A2A50484300453170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37E3B39C2A50484700453170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E3B39F2A50484700453170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37E3B3A12A50484700453170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37E3B3AD2A50504500453170 /* TvShowsLandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsLandingVC.swift; sourceTree = "<group>"; };
 		37E3B3AE2A50504500453170 /* TvShowsLandingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TvShowsLandingVC.xib; sourceTree = "<group>"; };
+		37E3B3B12A50550D00453170 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		37E3B3B32A50587000453170 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +64,11 @@
 		37E3B3922A50484300453170 /* TvShows */ = {
 			isa = PBXGroup;
 			children = (
-				37E3B3AB2A504FC800453170 /* Controllers */,
 				37E3B3AA2A504FC000453170 /* Coordinators */,
+				37E3B3AB2A504FC800453170 /* Controllers */,
 				37E3B3932A50484300453170 /* AppDelegate.swift */,
 				37E3B3952A50484300453170 /* SceneDelegate.swift */,
 				37E3B3972A50484300453170 /* ViewController.swift */,
-				37E3B3992A50484300453170 /* Main.storyboard */,
 				37E3B39C2A50484700453170 /* Assets.xcassets */,
 				37E3B39E2A50484700453170 /* LaunchScreen.storyboard */,
 				37E3B3A12A50484700453170 /* Info.plist */,
@@ -78,6 +79,8 @@
 		37E3B3AA2A504FC000453170 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				37E3B3B12A50550D00453170 /* Coordinator.swift */,
+				37E3B3B32A50587000453170 /* MainCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -166,7 +169,6 @@
 				37E3B3A02A50484700453170 /* LaunchScreen.storyboard in Resources */,
 				37E3B3B02A50504500453170 /* TvShowsLandingVC.xib in Resources */,
 				37E3B39D2A50484700453170 /* Assets.xcassets in Resources */,
-				37E3B39B2A50484300453170 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E3B3982A50484300453170 /* ViewController.swift in Sources */,
+				37E3B3B42A50587000453170 /* MainCoordinator.swift in Sources */,
 				37E3B3AF2A50504500453170 /* TvShowsLandingVC.swift in Sources */,
+				37E3B3B22A50550D00453170 /* Coordinator.swift in Sources */,
 				37E3B3942A50484300453170 /* AppDelegate.swift in Sources */,
 				37E3B3962A50484300453170 /* SceneDelegate.swift in Sources */,
 			);
@@ -187,14 +191,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		37E3B3992A50484300453170 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				37E3B39A2A50484300453170 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		37E3B39E2A50484700453170 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -332,7 +328,7 @@
 				INFOPLIST_FILE = TvShows/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -364,7 +360,7 @@
 				INFOPLIST_FILE = TvShows/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
