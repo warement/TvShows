@@ -14,6 +14,8 @@
 		37E3B39D2A50484700453170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B39C2A50484700453170 /* Assets.xcassets */; };
 		37E3B3A02A50484700453170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B39E2A50484700453170 /* LaunchScreen.storyboard */; };
 		37E3B3A92A504F5400453170 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 37E3B3A82A504F5400453170 /* Alamofire */; };
+		37E3B3AF2A50504500453170 /* TvShowsLandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3AD2A50504500453170 /* TvShowsLandingVC.swift */; };
+		37E3B3B02A50504500453170 /* TvShowsLandingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B3AE2A50504500453170 /* TvShowsLandingVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		37E3B39C2A50484700453170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E3B39F2A50484700453170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37E3B3A12A50484700453170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37E3B3AD2A50504500453170 /* TvShowsLandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsLandingVC.swift; sourceTree = "<group>"; };
+		37E3B3AE2A50504500453170 /* TvShowsLandingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TvShowsLandingVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		37E3B3922A50484300453170 /* TvShows */ = {
 			isa = PBXGroup;
 			children = (
+				37E3B3AB2A504FC800453170 /* Controllers */,
+				37E3B3AA2A504FC000453170 /* Coordinators */,
 				37E3B3932A50484300453170 /* AppDelegate.swift */,
 				37E3B3952A50484300453170 /* SceneDelegate.swift */,
 				37E3B3972A50484300453170 /* ViewController.swift */,
@@ -67,6 +73,30 @@
 				37E3B3A12A50484700453170 /* Info.plist */,
 			);
 			path = TvShows;
+			sourceTree = "<group>";
+		};
+		37E3B3AA2A504FC000453170 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		37E3B3AB2A504FC800453170 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				37E3B3AC2A504FFB00453170 /* TvShowsLanding */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		37E3B3AC2A504FFB00453170 /* TvShowsLanding */ = {
+			isa = PBXGroup;
+			children = (
+				37E3B3AD2A50504500453170 /* TvShowsLandingVC.swift */,
+				37E3B3AE2A50504500453170 /* TvShowsLandingVC.xib */,
+			);
+			path = TvShowsLanding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E3B3A02A50484700453170 /* LaunchScreen.storyboard in Resources */,
+				37E3B3B02A50504500453170 /* TvShowsLandingVC.xib in Resources */,
 				37E3B39D2A50484700453170 /* Assets.xcassets in Resources */,
 				37E3B39B2A50484300453170 /* Main.storyboard in Resources */,
 			);
@@ -147,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E3B3982A50484300453170 /* ViewController.swift in Sources */,
+				37E3B3AF2A50504500453170 /* TvShowsLandingVC.swift in Sources */,
 				37E3B3942A50484300453170 /* AppDelegate.swift in Sources */,
 				37E3B3962A50484300453170 /* SceneDelegate.swift in Sources */,
 			);
@@ -301,8 +333,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,9 +343,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gr.portfolio.TvShows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -329,8 +365,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,9 +375,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gr.portfolio.TvShows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
