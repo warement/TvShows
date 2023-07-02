@@ -8,7 +8,8 @@
 import UIKit
 
 class MainCoordinator: Coordinator {
-    var childCoordinators = [Coordinator]()
+    var parentCoordinator: (any Coordinator)?
+    var childCoordinators: [String : any Coordinator] = [:]
     var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
@@ -18,5 +19,9 @@ class MainCoordinator: Coordinator {
     func start() {
         let vc = TvShowsLandingVC()
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func handleAction(action: Action) {
+        
     }
 }

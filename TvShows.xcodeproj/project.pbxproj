@@ -17,6 +17,13 @@
 		37E3B3B02A50504500453170 /* TvShowsLandingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B3AE2A50504500453170 /* TvShowsLandingVC.xib */; };
 		37E3B3B22A50550D00453170 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3B12A50550D00453170 /* Coordinator.swift */; };
 		37E3B3B42A50587000453170 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3B32A50587000453170 /* MainCoordinator.swift */; };
+		37E3B3CF2A51A4DA00453170 /* TvShowsLandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3CE2A51A4DA00453170 /* TvShowsLandingViewModel.swift */; };
+		37E3B3D12A51A52400453170 /* TvShowsLandingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3D02A51A52400453170 /* TvShowsLandingState.swift */; };
+		37E3B3D32A51A53600453170 /* TvShowsLandingEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3D22A51A53600453170 /* TvShowsLandingEvents.swift */; };
+		37E3B3D62A51A75E00453170 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3D52A51A75E00453170 /* BaseViewModel.swift */; };
+		37E3B3D82A51AD4B00453170 /* BaseNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3D72A51AD4B00453170 /* BaseNavigation.swift */; };
+		37E3B3DA2A51B1A600453170 /* CoordinatorKeyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3D92A51B1A600453170 /* CoordinatorKeyImpl.swift */; };
+		37E3B3DD2A51B25200453170 /* Ext_RXSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3DC2A51B25200453170 /* Ext_RXSwift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +38,13 @@
 		37E3B3AE2A50504500453170 /* TvShowsLandingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TvShowsLandingVC.xib; sourceTree = "<group>"; };
 		37E3B3B12A50550D00453170 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		37E3B3B32A50587000453170 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		37E3B3CE2A51A4DA00453170 /* TvShowsLandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsLandingViewModel.swift; sourceTree = "<group>"; };
+		37E3B3D02A51A52400453170 /* TvShowsLandingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsLandingState.swift; sourceTree = "<group>"; };
+		37E3B3D22A51A53600453170 /* TvShowsLandingEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsLandingEvents.swift; sourceTree = "<group>"; };
+		37E3B3D52A51A75E00453170 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		37E3B3D72A51AD4B00453170 /* BaseNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigation.swift; sourceTree = "<group>"; };
+		37E3B3D92A51B1A600453170 /* CoordinatorKeyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorKeyImpl.swift; sourceTree = "<group>"; };
+		37E3B3DC2A51B25200453170 /* Ext_RXSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_RXSwift.swift; sourceTree = "<group>"; };
 		A95575B5037E1AD0C22E3CB9 /* Pods_TvShows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TvShows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6315D962E797CE29D5A284F /* Pods-TvShows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TvShows.release.xcconfig"; path = "Target Support Files/Pods-TvShows/Pods-TvShows.release.xcconfig"; sourceTree = "<group>"; };
 		F1173CB7BA27134D27BCA503 /* Pods-TvShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TvShows.debug.xcconfig"; path = "Target Support Files/Pods-TvShows/Pods-TvShows.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,8 +83,10 @@
 		37E3B3922A50484300453170 /* TvShows */ = {
 			isa = PBXGroup;
 			children = (
+				37E3B3D42A51A73C00453170 /* Base */,
 				37E3B3AA2A504FC000453170 /* Coordinators */,
 				37E3B3AB2A504FC800453170 /* Controllers */,
+				37E3B3DB2A51B23400453170 /* Extensions */,
 				37E3B3932A50484300453170 /* AppDelegate.swift */,
 				37E3B3952A50484300453170 /* SceneDelegate.swift */,
 				37E3B3972A50484300453170 /* ViewController.swift */,
@@ -101,10 +117,39 @@
 		37E3B3AC2A504FFB00453170 /* TvShowsLanding */ = {
 			isa = PBXGroup;
 			children = (
-				37E3B3AD2A50504500453170 /* TvShowsLandingVC.swift */,
+				37E3B3CD2A51A4BB00453170 /* Interactors */,
 				37E3B3AE2A50504500453170 /* TvShowsLandingVC.xib */,
+				37E3B3AD2A50504500453170 /* TvShowsLandingVC.swift */,
+				37E3B3CE2A51A4DA00453170 /* TvShowsLandingViewModel.swift */,
 			);
 			path = TvShowsLanding;
+			sourceTree = "<group>";
+		};
+		37E3B3CD2A51A4BB00453170 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				37E3B3D02A51A52400453170 /* TvShowsLandingState.swift */,
+				37E3B3D22A51A53600453170 /* TvShowsLandingEvents.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		37E3B3D42A51A73C00453170 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				37E3B3D52A51A75E00453170 /* BaseViewModel.swift */,
+				37E3B3D72A51AD4B00453170 /* BaseNavigation.swift */,
+				37E3B3D92A51B1A600453170 /* CoordinatorKeyImpl.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		37E3B3DB2A51B23400453170 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				37E3B3DC2A51B25200453170 /* Ext_RXSwift.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		653EA4B427A492C318C09EF1 /* Pods */ = {
@@ -113,7 +158,6 @@
 				F1173CB7BA27134D27BCA503 /* Pods-TvShows.debug.xcconfig */,
 				D6315D962E797CE29D5A284F /* Pods-TvShows.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -240,12 +284,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E3B3D12A51A52400453170 /* TvShowsLandingState.swift in Sources */,
+				37E3B3D62A51A75E00453170 /* BaseViewModel.swift in Sources */,
 				37E3B3982A50484300453170 /* ViewController.swift in Sources */,
 				37E3B3B42A50587000453170 /* MainCoordinator.swift in Sources */,
 				37E3B3AF2A50504500453170 /* TvShowsLandingVC.swift in Sources */,
+				37E3B3CF2A51A4DA00453170 /* TvShowsLandingViewModel.swift in Sources */,
+				37E3B3D82A51AD4B00453170 /* BaseNavigation.swift in Sources */,
 				37E3B3B22A50550D00453170 /* Coordinator.swift in Sources */,
 				37E3B3942A50484300453170 /* AppDelegate.swift in Sources */,
+				37E3B3D32A51A53600453170 /* TvShowsLandingEvents.swift in Sources */,
+				37E3B3DA2A51B1A600453170 /* CoordinatorKeyImpl.swift in Sources */,
 				37E3B3962A50484300453170 /* SceneDelegate.swift in Sources */,
+				37E3B3DD2A51B25200453170 /* Ext_RXSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
