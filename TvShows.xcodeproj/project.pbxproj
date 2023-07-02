@@ -24,7 +24,40 @@
 		37E3B3D82A51AD4B00453170 /* BaseNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3D72A51AD4B00453170 /* BaseNavigation.swift */; };
 		37E3B3DA2A51B1A600453170 /* CoordinatorKeyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3D92A51B1A600453170 /* CoordinatorKeyImpl.swift */; };
 		37E3B3DD2A51B25200453170 /* Ext_RXSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3DC2A51B25200453170 /* Ext_RXSwift.swift */; };
+		37E3B4302A51BAAE00453170 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E3B42D2A51BA7700453170 /* Domain.framework */; };
+		37E3B4312A51BAAE00453170 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37E3B42D2A51BA7700453170 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		37E3B42C2A51BA7700453170 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37E3B4272A51BA7700453170 /* Domain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 37E3B40C2A51B94700453170;
+			remoteInfo = Domain;
+		};
+		37E3B42E2A51BA7700453170 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37E3B4272A51BA7700453170 /* Domain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 37E3B4162A51B94700453170;
+			remoteInfo = DomainTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		37E3B4322A51BAAE00453170 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				37E3B4312A51BAAE00453170 /* Domain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		37E3B3902A50484300453170 /* TvShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +78,7 @@
 		37E3B3D72A51AD4B00453170 /* BaseNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigation.swift; sourceTree = "<group>"; };
 		37E3B3D92A51B1A600453170 /* CoordinatorKeyImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorKeyImpl.swift; sourceTree = "<group>"; };
 		37E3B3DC2A51B25200453170 /* Ext_RXSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_RXSwift.swift; sourceTree = "<group>"; };
+		37E3B4272A51BA7700453170 /* Domain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Domain.xcodeproj; path = Domain/Domain.xcodeproj; sourceTree = "<group>"; };
 		A95575B5037E1AD0C22E3CB9 /* Pods_TvShows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TvShows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6315D962E797CE29D5A284F /* Pods-TvShows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TvShows.release.xcconfig"; path = "Target Support Files/Pods-TvShows/Pods-TvShows.release.xcconfig"; sourceTree = "<group>"; };
 		F1173CB7BA27134D27BCA503 /* Pods-TvShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TvShows.debug.xcconfig"; path = "Target Support Files/Pods-TvShows/Pods-TvShows.debug.xcconfig"; sourceTree = "<group>"; };
@@ -55,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E3B4302A51BAAE00453170 /* Domain.framework in Frameworks */,
 				30715500D7B806809146F8C7 /* Pods_TvShows.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +100,7 @@
 		37E3B3872A50484200453170 = {
 			isa = PBXGroup;
 			children = (
+				37E3B4262A51BA6700453170 /* Dependencies */,
 				37E3B3922A50484300453170 /* TvShows */,
 				37E3B3912A50484300453170 /* Products */,
 				653EA4B427A492C318C09EF1 /* Pods */,
@@ -152,6 +188,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		37E3B4262A51BA6700453170 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				37E3B4272A51BA7700453170 /* Domain.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		37E3B4282A51BA7700453170 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37E3B42D2A51BA7700453170 /* Domain.framework */,
+				37E3B42F2A51BA7700453170 /* DomainTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		653EA4B427A492C318C09EF1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +234,7 @@
 				37E3B38D2A50484300453170 /* Frameworks */,
 				37E3B38E2A50484300453170 /* Resources */,
 				42B8F9C5125BC75F5CEB27AD /* [CP] Embed Pods Frameworks */,
+				37E3B4322A51BAAE00453170 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,12 +271,35 @@
 			mainGroup = 37E3B3872A50484200453170;
 			productRefGroup = 37E3B3912A50484300453170 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 37E3B4282A51BA7700453170 /* Products */;
+					ProjectRef = 37E3B4272A51BA7700453170 /* Domain.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				37E3B38F2A50484300453170 /* TvShows */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		37E3B42D2A51BA7700453170 /* Domain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Domain.framework;
+			remoteRef = 37E3B42C2A51BA7700453170 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37E3B42F2A51BA7700453170 /* DomainTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DomainTests.xctest;
+			remoteRef = 37E3B42E2A51BA7700453170 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		37E3B38E2A50484300453170 /* Resources */ = {
