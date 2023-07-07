@@ -17,7 +17,7 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = TvShowsLandingVC()
+        let vc = TvShowsLandingVC(viewModel: TvShowsLandingViewModel(actionHandler: self))
         navigationController.pushViewController(vc, animated: false)
     }
     

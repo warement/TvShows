@@ -8,8 +8,6 @@
 import Foundation
 
 public protocol TvShowsDataContext {
-    func testRequest(
-        oneTime: Bool,
-        completion: @escaping (Result<String?, DataContextExceptionBean>) -> Void
-    )
+    
+    func getPopularTvShows() async -> Result<PagedListResult<PopularTvShows>?, BaseException>
 }

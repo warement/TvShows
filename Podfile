@@ -8,12 +8,18 @@ target 'Domain' do
   use_frameworks!
 end
 
+def data_pods
+  # Alamofire
+  pod 'Alamofire', '~> 5.4'
+  pod 'AlamofireImage', '~> 4.1'
+  pod 'AlamofireNetworkActivityLogger', '~> 3.4'
+end
+
 target 'Data' do
   project './Data/Data.project'
   use_frameworks!
   # Alamofire
-  pod 'Alamofire', '~> 5.4'
-  pod 'AlamofireImage', '~> 4.1'
+  data_pods
 end
 
 target 'TvShows' do
@@ -25,4 +31,5 @@ target 'TvShows' do
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
   pod 'RxDataSources', '~> 5.0'
+  data_pods
 end

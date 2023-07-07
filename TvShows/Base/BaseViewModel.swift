@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Domain
 
 // MARK: - BaseState
 public protocol BaseState {
@@ -58,7 +59,7 @@ extension BaseViewModel {
 public protocol BaseErrorHandler: AnyObject {
     
     @discardableResult
-    func handleErrors(error: String) -> Bool
+    func handleErrors(error: BaseException) -> Bool
 }
 
 // MARK: - BaseErrorHandler Default IMPL
@@ -66,7 +67,7 @@ extension BaseErrorHandler {
     
     @discardableResult
     public func handleErrors(
-        error: String//DataContextExceptionBean,
+        error: BaseException//,
         //config: HandleErrorsConfig = HandleErrorsConfig.Builder().build()
     ) -> Bool {
         //        // let genericErrorMessage = config.genericErrorMessage
@@ -131,6 +132,7 @@ extension BaseErrorHandler {
         //
         //        return false
         //    }
+        print(error.localizedDescription)
         return true
         
     }

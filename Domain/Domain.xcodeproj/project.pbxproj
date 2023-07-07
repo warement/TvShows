@@ -3,19 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1323D0788278642FAB1933B0 /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B52558EE8B35168BFBF5D7 /* Pods_Domain.framework */; };
+		37362B802A587CD900E2BAB7 /* PagedListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37362B7F2A587CD900E2BAB7 /* PagedListResult.swift */; };
+		37362B832A587D0400E2BAB7 /* PagedGenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37362B822A587D0400E2BAB7 /* PagedGenericResponse.swift */; };
+		37362B852A587D3D00E2BAB7 /* BaseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37362B842A587D3D00E2BAB7 /* BaseException.swift */; };
+		37362B892A58804400E2BAB7 /* DomainMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37362B882A58804400E2BAB7 /* DomainMapper.swift */; };
+		3774D83A2A545B5600E4047E /* PopularTvShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3774D8392A545B5600E4047E /* PopularTvShows.swift */; };
 		37E3B4112A51B94700453170 /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4102A51B94700453170 /* Domain.docc */; };
 		37E3B4172A51B94700453170 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E3B40C2A51B94700453170 /* Domain.framework */; };
 		37E3B41C2A51B94700453170 /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B41B2A51B94700453170 /* DomainTests.swift */; };
 		37E3B41D2A51B94700453170 /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E3B40F2A51B94700453170 /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E3B4492A51BDD900453170 /* TvShowsDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4482A51BDD900453170 /* TvShowsDataContext.swift */; };
 		37E3B48B2A51C48400453170 /* CustomInject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B48A2A51C48400453170 /* CustomInject.swift */; };
-		37E3B4932A51CD2300453170 /* DataContextExceptionBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4922A51CD2300453170 /* DataContextExceptionBean.swift */; };
-		37E3B4972A51CEB900453170 /* ExceptionBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4962A51CEB900453170 /* ExceptionBean.swift */; };
 		37E3B49A2A51CF6700453170 /* SafeEnumType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4992A51CF6700453170 /* SafeEnumType.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +34,11 @@
 
 /* Begin PBXFileReference section */
 		2F2F361F1AE3A97C7C41A732 /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
+		37362B7F2A587CD900E2BAB7 /* PagedListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedListResult.swift; sourceTree = "<group>"; };
+		37362B822A587D0400E2BAB7 /* PagedGenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedGenericResponse.swift; sourceTree = "<group>"; };
+		37362B842A587D3D00E2BAB7 /* BaseException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseException.swift; sourceTree = "<group>"; };
+		37362B882A58804400E2BAB7 /* DomainMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainMapper.swift; sourceTree = "<group>"; };
+		3774D8392A545B5600E4047E /* PopularTvShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTvShows.swift; sourceTree = "<group>"; };
 		37E3B40C2A51B94700453170 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E3B40F2A51B94700453170 /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		37E3B4102A51B94700453170 /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
@@ -38,8 +46,6 @@
 		37E3B41B2A51B94700453170 /* DomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTests.swift; sourceTree = "<group>"; };
 		37E3B4482A51BDD900453170 /* TvShowsDataContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsDataContext.swift; sourceTree = "<group>"; };
 		37E3B48A2A51C48400453170 /* CustomInject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInject.swift; sourceTree = "<group>"; };
-		37E3B4922A51CD2300453170 /* DataContextExceptionBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContextExceptionBean.swift; sourceTree = "<group>"; };
-		37E3B4962A51CEB900453170 /* ExceptionBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionBean.swift; sourceTree = "<group>"; };
 		37E3B4992A51CF6700453170 /* SafeEnumType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeEnumType.swift; sourceTree = "<group>"; };
 		ABE5402C2ACE66A2C048662B /* Pods-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.release.xcconfig"; path = "Target Support Files/Pods-Domain/Pods-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		F9B52558EE8B35168BFBF5D7 /* Pods_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +71,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37362B7D2A587CA100E2BAB7 /* TvShows */ = {
+			isa = PBXGroup;
+			children = (
+				3774D8392A545B5600E4047E /* PopularTvShows.swift */,
+			);
+			path = TvShows;
+			sourceTree = "<group>";
+		};
+		37362B7E2A587CB800E2BAB7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				37362B7F2A587CD900E2BAB7 /* PagedListResult.swift */,
+				37362B822A587D0400E2BAB7 /* PagedGenericResponse.swift */,
+				37362B842A587D3D00E2BAB7 /* BaseException.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		37362B862A58802A00E2BAB7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				37362B872A58803000E2BAB7 /* Mappers */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		37362B872A58803000E2BAB7 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				37362B882A58804400E2BAB7 /* DomainMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
 		37E3B4022A51B94600453170 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +128,7 @@
 		37E3B40E2A51B94700453170 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				37362B862A58802A00E2BAB7 /* Utils */,
 				37E3B4452A51BD1400453170 /* Di */,
 				37E3B4462A51BD1C00453170 /* Models */,
 				37E3B4472A51BD3500453170 /* DataContext */,
@@ -116,7 +157,8 @@
 		37E3B4462A51BD1C00453170 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				37E3B4962A51CEB900453170 /* ExceptionBean.swift */,
+				37362B7E2A587CB800E2BAB7 /* Base */,
+				37362B7D2A587CA100E2BAB7 /* TvShows */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				37E3B4982A51CF5200453170 /* Helpers */,
-				37E3B4922A51CD2300453170 /* DataContextExceptionBean.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -235,7 +276,7 @@
 				};
 			};
 			buildConfigurationList = 37E3B4062A51B94600453170 /* Build configuration list for PBXProject "Domain" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -300,11 +341,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37362B852A587D3D00E2BAB7 /* BaseException.swift in Sources */,
 				37E3B4492A51BDD900453170 /* TvShowsDataContext.swift in Sources */,
-				37E3B4932A51CD2300453170 /* DataContextExceptionBean.swift in Sources */,
+				37362B832A587D0400E2BAB7 /* PagedGenericResponse.swift in Sources */,
 				37E3B48B2A51C48400453170 /* CustomInject.swift in Sources */,
-				37E3B4972A51CEB900453170 /* ExceptionBean.swift in Sources */,
 				37E3B4112A51B94700453170 /* Domain.docc in Sources */,
+				37362B892A58804400E2BAB7 /* DomainMapper.swift in Sources */,
+				37362B802A587CD900E2BAB7 /* PagedListResult.swift in Sources */,
+				3774D83A2A545B5600E4047E /* PopularTvShows.swift in Sources */,
 				37E3B49A2A51CF6700453170 /* SafeEnumType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

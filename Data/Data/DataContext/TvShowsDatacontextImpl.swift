@@ -19,12 +19,15 @@ class TvShowsDatacontextImpl: TvShowsDataContext {
         self.networkProvider = networkProvider
     }
     
-    func testRequest(
-        oneTime: Bool,
-        completion: @escaping (Result<String?, DataContextExceptionBean>) -> Void
-    ) {
-        networkProvider
-            .sessionManager.request(TvShowsPathrouter.testGetCase)
-            .validateResponseWrapper(fromType: String.self, completion: completion)
+    func getPopularTvShows() async -> Result<PagedListResult<PopularTvShows>?, BaseException> {
+        return await networkProvider
+            .sessionManager.request(TvShowsPathrouter.getPopularTvShows)
+            .validateRawResponseWrapper(
+                fromType: PagedGenericResponse<[PopularTvShows]>.self,
+                mapperType: PagedListResult<PopularTvShows>.self,
+                mapper: { response in
+                    return GenericPagingMapper<PopularTvShows>().domainToPagingData(response: response)
+                }
+            )
     }
 }
