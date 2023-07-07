@@ -11,8 +11,6 @@
 		3774D84C2A548A7900E4047E /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3774D8472A548A4400E4047E /* Data.framework */; };
 		3774D84D2A548A7900E4047E /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3774D8472A548A4400E4047E /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37E3B3942A50484300453170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3932A50484300453170 /* AppDelegate.swift */; };
-		37E3B3962A50484300453170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3952A50484300453170 /* SceneDelegate.swift */; };
-		37E3B3982A50484300453170 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3972A50484300453170 /* ViewController.swift */; };
 		37E3B39D2A50484700453170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B39C2A50484700453170 /* Assets.xcassets */; };
 		37E3B3A02A50484700453170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B39E2A50484700453170 /* LaunchScreen.storyboard */; };
 		37E3B3AF2A50504500453170 /* TvShowsLandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3AD2A50504500453170 /* TvShowsLandingVC.swift */; };
@@ -80,8 +78,6 @@
 		3774D8412A548A4400E4047E /* Data.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Data.xcodeproj; path = Data/Data.xcodeproj; sourceTree = "<group>"; };
 		37E3B3902A50484300453170 /* TvShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E3B3932A50484300453170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		37E3B3952A50484300453170 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37E3B3972A50484300453170 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37E3B39C2A50484700453170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E3B39F2A50484700453170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37E3B3A12A50484700453170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,8 +148,6 @@
 				37E3B3AB2A504FC800453170 /* Controllers */,
 				37E3B3DB2A51B23400453170 /* Extensions */,
 				37E3B3932A50484300453170 /* AppDelegate.swift */,
-				37E3B3952A50484300453170 /* SceneDelegate.swift */,
-				37E3B3972A50484300453170 /* ViewController.swift */,
 				37E3B39C2A50484700453170 /* Assets.xcassets */,
 				37E3B39E2A50484700453170 /* LaunchScreen.storyboard */,
 				37E3B3A12A50484700453170 /* Info.plist */,
@@ -410,7 +404,6 @@
 			files = (
 				37E3B3D12A51A52400453170 /* TvShowsLandingState.swift in Sources */,
 				37E3B3D62A51A75E00453170 /* BaseViewModel.swift in Sources */,
-				37E3B3982A50484300453170 /* ViewController.swift in Sources */,
 				37E3B3B42A50587000453170 /* MainCoordinator.swift in Sources */,
 				37E3B3AF2A50504500453170 /* TvShowsLandingVC.swift in Sources */,
 				37E3B3CF2A51A4DA00453170 /* TvShowsLandingViewModel.swift in Sources */,
@@ -419,7 +412,6 @@
 				37E3B3942A50484300453170 /* AppDelegate.swift in Sources */,
 				37E3B3D32A51A53600453170 /* TvShowsLandingEvents.swift in Sources */,
 				37E3B3DA2A51B1A600453170 /* CoordinatorKeyImpl.swift in Sources */,
-				37E3B3962A50484300453170 /* SceneDelegate.swift in Sources */,
 				37E3B3DD2A51B25200453170 /* Ext_RXSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
