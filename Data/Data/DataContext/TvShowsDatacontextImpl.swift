@@ -30,4 +30,10 @@ class TvShowsDatacontextImpl: TvShowsDataContext {
                 }
             )
     }
+    
+    func getTvShowDetails(id: String) async -> Result<TvShowDetails?, BaseException> {
+        return await networkProvider
+            .sessionManager.request(TvShowsPathrouter.getTvShowDetails(id: id))
+            .validateRawResponseWrapper(fromType: TvShowDetails.self)
+    }
 }

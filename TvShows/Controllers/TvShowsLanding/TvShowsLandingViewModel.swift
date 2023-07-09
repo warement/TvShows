@@ -37,6 +37,8 @@ class TvShowsLandingViewModel: BaseViewModel {
         switch event {
         case .fetchData:
             getPopularTvShows()
+        case .getTvShowDetails(let id):
+            getTvShowDetails(id: id)
         }
     }
     
@@ -46,7 +48,19 @@ class TvShowsLandingViewModel: BaseViewModel {
             let result = await tvShowsDataContext.getPopularTvShows()
             switch result {
             case .success(let popularMovies):
-                print(popularMovies)
+                print(popularMovies ?? "")
+            case .failure(let error):
+                self.handleErrors(error: error)
+            }
+        }
+    }
+    
+    private func getTvShowDetails(id: String) {
+        Task.init {
+            let result = await tvShowsDataContext.getTvShowDetails(id: id)
+            switch result {
+            case .success(let tvShowDetails):
+                print("tvShow details are: \(String(describing: tvShowDetails))")
             case .failure(let error):
                 self.handleErrors(error: error)
             }

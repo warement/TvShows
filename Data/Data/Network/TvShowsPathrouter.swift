@@ -13,13 +13,12 @@ public enum TvShowsPathrouter: URLRequestConvertible {
     
     ///# Device Register Endpoints
     case getPopularTvShows
-    //case getBlockedHistoryConversations(start: Int?, offset: Int?)
-    
+    case getTvShowDetails(id: String)
     
     // MARK: - Method
     var method: HTTPMethod {
         switch self {
-        case .getPopularTvShows:
+        case .getPopularTvShows, .getTvShowDetails:
             return .get
         }
     }
@@ -28,6 +27,8 @@ public enum TvShowsPathrouter: URLRequestConvertible {
         switch self {
         case .getPopularTvShows:
             return "/tv/popular"
+        case .getTvShowDetails(let id):
+            return "/tv/\(id)"
         }
     }
     
@@ -36,7 +37,7 @@ public enum TvShowsPathrouter: URLRequestConvertible {
         switch method {
         case .put, .post, .get:
             switch self {
-            case .getPopularTvShows:
+            case .getPopularTvShows, .getTvShowDetails:
                 return URLEncoding.queryString
             }
         default:
@@ -48,7 +49,8 @@ public enum TvShowsPathrouter: URLRequestConvertible {
     var headers: [String: String] {
         let headers = [
             "accept": "application/json",
-            "Authorization": "Bearer \(ConstantKeys.accessToken)"
+            "Authorization": "Bearer \(ConstantKeys.accessToken)",
+            "language": ConstantKeys.locale
         ]
         
         return headers
@@ -67,9 +69,10 @@ public enum TvShowsPathrouter: URLRequestConvertible {
         case .getPopularTvShows:
             parameters = [
                 "page": 1,
-                "language": ConstantKeys.locale,
                 "sort_by":"created_at.asc"
             ]
+        default:
+            break
             
             //            ///# Login Endpoints
             //        case .loginWithCredentials(let credentials),
