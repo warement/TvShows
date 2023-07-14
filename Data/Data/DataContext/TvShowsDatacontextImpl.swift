@@ -31,6 +31,30 @@ class TvShowsDatacontextImpl: TvShowsDataContext {
             )
     }
     
+    func getTopRatedTvShows() async -> Result<PagedListResult<TvShows>?, BaseException> {
+        return await networkProvider
+            .sessionManager.request(TvShowsPathrouter.getTopRatedTvShows)
+            .validateRawResponseWrapper(
+                fromType: PagedGenericResponse<[TvShows]>.self,
+                mapperType: PagedListResult<TvShows>.self,
+                mapper: { response in
+                    return GenericPagingMapper<TvShows>().domainToPagingData(response: response)
+                }
+            )
+    }
+    
+    func getOnTheAirTvShows() async -> Result<PagedListResult<TvShows>?, BaseException> {
+        return await networkProvider
+            .sessionManager.request(TvShowsPathrouter.getOnTheAirTvShows)
+            .validateRawResponseWrapper(
+                fromType: PagedGenericResponse<[TvShows]>.self,
+                mapperType: PagedListResult<TvShows>.self,
+                mapper: { response in
+                    return GenericPagingMapper<TvShows>().domainToPagingData(response: response)
+                }
+            )
+    }
+    
     func getTvShowDetails(id: String) async -> Result<TvShowDetails?, BaseException> {
         return await networkProvider
             .sessionManager.request(TvShowsPathrouter.getTvShowDetails(id: id))

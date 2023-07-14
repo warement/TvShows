@@ -13,13 +13,19 @@ public enum TvShowsPathrouter: URLRequestConvertible {
     
     ///# Device Register Endpoints
     case getPopularTvShows
+    case getTopRatedTvShows
+    case getOnTheAirTvShows
     case getTvShowDetails(id: String)
     case getImage(size: String, path: String)
     
     // MARK: - Method
     var method: HTTPMethod {
         switch self {
-        case .getPopularTvShows, .getTvShowDetails, .getImage:
+        case .getPopularTvShows,
+                .getTopRatedTvShows,
+                .getOnTheAirTvShows
+                .getTvShowDetails,
+                .getImage:
             return .get
         }
     }
@@ -28,6 +34,10 @@ public enum TvShowsPathrouter: URLRequestConvertible {
         switch self {
         case .getPopularTvShows:
             return "/tv/popular"
+        case .getTopRatedTvShows:
+            return "/tv/top_rated"
+        case .getOnTheAirTvShows:
+            return "/tv/on_the_air"
         case .getTvShowDetails(let id):
             return "/tv/\(id)"
         case .getImage(let size, let path):
@@ -40,7 +50,11 @@ public enum TvShowsPathrouter: URLRequestConvertible {
         switch method {
         case .put, .post, .get:
             switch self {
-            case .getPopularTvShows, .getTvShowDetails, .getImage:
+            case .getPopularTvShows,
+                    .getTopRatedTvShows,
+                    .getOnTheAirTvShows,
+                    .getTvShowDetails,
+                    .getImage:
                 return URLEncoding.queryString
             }
         default:
