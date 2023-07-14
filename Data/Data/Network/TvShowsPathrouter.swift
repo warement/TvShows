@@ -14,11 +14,12 @@ public enum TvShowsPathrouter: URLRequestConvertible {
     ///# Device Register Endpoints
     case getPopularTvShows
     case getTvShowDetails(id: String)
+    case getImage(size: String, path: String)
     
     // MARK: - Method
     var method: HTTPMethod {
         switch self {
-        case .getPopularTvShows, .getTvShowDetails:
+        case .getPopularTvShows, .getTvShowDetails, .getImage:
             return .get
         }
     }
@@ -29,6 +30,8 @@ public enum TvShowsPathrouter: URLRequestConvertible {
             return "/tv/popular"
         case .getTvShowDetails(let id):
             return "/tv/\(id)"
+        case .getImage(let size, let path):
+            return "/\(size)\(path)"
         }
     }
     
@@ -37,7 +40,7 @@ public enum TvShowsPathrouter: URLRequestConvertible {
         switch method {
         case .put, .post, .get:
             switch self {
-            case .getPopularTvShows, .getTvShowDetails:
+            case .getPopularTvShows, .getTvShowDetails, .getImage:
                 return URLEncoding.queryString
             }
         default:
@@ -58,7 +61,14 @@ public enum TvShowsPathrouter: URLRequestConvertible {
     
     // MARK: - Functions
     public func asURLRequest() throws -> URLRequest {
-        let url = try ConstantKeys.baseURL.asURL()
+        var url: URL
+        switch self {
+        case .getImage:
+            url = try ConstantKeys.imagesBaseUrl.asURL()
+        default:
+            url = try ConstantKeys.baseURL.asURL()
+        }
+        
         var request = URLRequest(url: url.appendingPathComponent(path))
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers

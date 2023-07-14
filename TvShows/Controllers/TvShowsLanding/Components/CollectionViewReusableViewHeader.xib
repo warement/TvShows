@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="CollectionViewReusableViewHeader" customModule="TvShows" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pw6-dZ-zJH">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNy-UF-uHa">
+                            <rect key="frame" x="12" y="0.0" width="308" height="41"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="LNy-UF-uHa" secondAttribute="trailing" id="It8-4q-ead"/>
+                        <constraint firstAttribute="height" constant="41" id="Zpn-LW-NYG"/>
+                        <constraint firstItem="LNy-UF-uHa" firstAttribute="top" secondItem="Pw6-dZ-zJH" secondAttribute="top" id="cVE-ua-rgc"/>
+                        <constraint firstAttribute="bottom" secondItem="LNy-UF-uHa" secondAttribute="bottom" id="fKv-FQ-Lkc"/>
+                        <constraint firstItem="LNy-UF-uHa" firstAttribute="leading" secondItem="Pw6-dZ-zJH" secondAttribute="leading" constant="12" id="wlj-5D-yPD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="Pw6-dZ-zJH" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="LRL-Bk-d2k"/>
+                <constraint firstAttribute="trailing" secondItem="Pw6-dZ-zJH" secondAttribute="trailing" id="azY-2g-vcX"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="Pw6-dZ-zJH" secondAttribute="bottom" id="n6j-q1-bgi"/>
+                <constraint firstItem="Pw6-dZ-zJH" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="qRg-6A-Xbm"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLbl" destination="LNy-UF-uHa" id="2JB-vi-qBl"/>
+            </connections>
+            <point key="canvasLocation" x="108.3969465648855" y="20.422535211267608"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

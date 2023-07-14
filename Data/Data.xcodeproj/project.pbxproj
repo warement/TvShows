@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01E9616629A1E8123A3C3D15 /* Pods_Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8129BC29DF07BAB814636A0C /* Pods_Data.framework */; };
 		3774D83C2A54608100E4047E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3774D83B2A54608100E4047E /* Constants.swift */; };
+		37D1B23B2A6050F70081861F /* ImageSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B23A2A6050F60081861F /* ImageSizes.swift */; };
 		37E3B4592A51BEF200453170 /* Data.docc in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4582A51BEF200453170 /* Data.docc */; };
 		37E3B45F2A51BEF200453170 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E3B4542A51BEF200453170 /* Data.framework */; };
 		37E3B4642A51BEF200453170 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4632A51BEF200453170 /* DataTests.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		3774D83B2A54608100E4047E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3774D8512A5493A300E4047E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37D1B23A2A6050F60081861F /* ImageSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSizes.swift; sourceTree = "<group>"; };
 		37E3B4542A51BEF200453170 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E3B4572A51BEF200453170 /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		37E3B4582A51BEF200453170 /* Data.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Data.docc; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37D1B2372A6050D00081861F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				37D1B23A2A6050F60081861F /* ImageSizes.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		37E3B44A2A51BEF200453170 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 				37E3B4822A51C03300453170 /* Boundaries */,
 				37E3B4812A51C02700453170 /* Network */,
 				37E3B47E2A51C01C00453170 /* DataContext */,
+				37D1B2372A6050D00081861F /* Helpers */,
 				37E3B4572A51BEF200453170 /* Data.h */,
 				37E3B4582A51BEF200453170 /* Data.docc */,
 			);
@@ -369,6 +380,7 @@
 				37E3B4872A51C09B00453170 /* TvShowsPathrouter.swift in Sources */,
 				37E3B4952A51CDED00453170 /* Ext_DataRequest.swift in Sources */,
 				37E3B4902A51C9B200453170 /* NetworkConfigurator.swift in Sources */,
+				37D1B23B2A6050F70081861F /* ImageSizes.swift in Sources */,
 				37E3B4852A51C06500453170 /* TvShowsDatacontextImpl.swift in Sources */,
 				37E3B4592A51BEF200453170 /* Data.docc in Sources */,
 				37E3B4892A51C3F800453170 /* InjectDependencies.swift in Sources */,
@@ -447,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -504,7 +516,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -530,7 +542,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,7 +575,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

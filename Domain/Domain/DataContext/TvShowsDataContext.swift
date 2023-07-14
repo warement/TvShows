@@ -9,6 +9,7 @@ import Foundation
 
 public protocol TvShowsDataContext {
     
-    func getPopularTvShows() async -> Result<PagedListResult<PopularTvShows>?, BaseException>
+    func getPopularTvShows() async -> Result<PagedListResult<TvShows>?, BaseException>
     func getTvShowDetails(id: String) async -> Result<TvShowDetails?, BaseException>
+    func getTvShowImage(size: String, path: String) async -> Result<Data?, BaseException>
 }

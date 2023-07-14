@@ -13,6 +13,7 @@ public enum ConstantKeys {
     static let accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NDRhMmU2YzUwMGMyM2QwZjRlMjBmOWVkNDEyM2ExNiIsInN1YiI6IjVjYTczZDIwOTI1MTQxMjU5NmRmMWE3MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dC9gsq12GPFEsjRAdJCs3s4IHayVsmcp95rDz9gwqow"
     static let locale = "en-US"
     static let baseURL = "https://api.themoviedb.org/3"
+    static let imagesBaseUrl = "https://image.tmdb.org/t/p"
 }
 
 var placeHolderIdSerieId = 0

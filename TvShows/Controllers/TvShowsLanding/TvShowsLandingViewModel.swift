@@ -39,6 +39,11 @@ class TvShowsLandingViewModel: BaseViewModel {
             getPopularTvShows()
         case .getTvShowDetails(let id):
             getTvShowDetails(id: id)
+        case .getTvShowImage:
+            break
+            //getTvShowImage(size: "w500", path: "/uh2NbTkUheENmBlUs7Kwb5EaAXQ.jpg")
+        case .getPopularTvShows:
+            getPopularTvShows()
         }
     }
     
@@ -47,8 +52,14 @@ class TvShowsLandingViewModel: BaseViewModel {
         Task.init {
             let result = await tvShowsDataContext.getPopularTvShows()
             switch result {
-            case .success(let popularMovies):
-                print(popularMovies ?? "")
+            case .success(let popularTvShowsPageListResult):
+                let popularTvShows = popularTvShowsPageListResult?.results ?? []
+                var popularTvShowsData: [TvShowsDTO] = []
+                for tvShow in popularTvShows {
+                    let imageData = await getTvShowImage(size: ImageSizes.PosterSizes.w342, path: tvShow.posterPath ?? "")
+                    popularTvShowsData.append(TvShowsDTO(tvShow: tvShow, posterImage: imageData))
+                }
+                state.accept(state.value.copy(popularTvShows: popularTvShowsData))
             case .failure(let error):
                 self.handleErrors(error: error)
             }
@@ -64,6 +75,19 @@ class TvShowsLandingViewModel: BaseViewModel {
             case .failure(let error):
                 self.handleErrors(error: error)
             }
+        }
+    }
+    
+    private func getTvShowImage(size: String, path: String) async -> Data? {
+        let result = await tvShowsDataContext.getTvShowImage(size: size, path: path)
+        switch result {
+        case .success(let data):
+            print(data)
+            return data
+            //state.accept(state.value.copy(imageData: data))
+        case .failure(let error):
+            self.handleErrors(error: error)
+            return nil
         }
     }
 }

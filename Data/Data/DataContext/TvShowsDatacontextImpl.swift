@@ -19,14 +19,14 @@ class TvShowsDatacontextImpl: TvShowsDataContext {
         self.networkProvider = networkProvider
     }
     
-    func getPopularTvShows() async -> Result<PagedListResult<PopularTvShows>?, BaseException> {
+    func getPopularTvShows() async -> Result<PagedListResult<TvShows>?, BaseException> {
         return await networkProvider
             .sessionManager.request(TvShowsPathrouter.getPopularTvShows)
             .validateRawResponseWrapper(
-                fromType: PagedGenericResponse<[PopularTvShows]>.self,
-                mapperType: PagedListResult<PopularTvShows>.self,
+                fromType: PagedGenericResponse<[TvShows]>.self,
+                mapperType: PagedListResult<TvShows>.self,
                 mapper: { response in
-                    return GenericPagingMapper<PopularTvShows>().domainToPagingData(response: response)
+                    return GenericPagingMapper<TvShows>().domainToPagingData(response: response)
                 }
             )
     }
@@ -35,5 +35,11 @@ class TvShowsDatacontextImpl: TvShowsDataContext {
         return await networkProvider
             .sessionManager.request(TvShowsPathrouter.getTvShowDetails(id: id))
             .validateRawResponseWrapper(fromType: TvShowDetails.self)
+    }
+    
+    func getTvShowImage(size: String, path: String) async -> Result<Data?, BaseException> {
+        return await networkProvider
+            .sessionManager.request(TvShowsPathrouter.getImage(size: size, path: path))
+            .validateImageResponse()
     }
 }

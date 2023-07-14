@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PopularTvShows: Codable {
+public struct TvShows: Codable, Equatable {
     
     public let adult: Bool?
     public let backdropPath: String?
@@ -68,5 +68,16 @@ public struct PopularTvShows: Codable {
         case releaseDate
         case title
         case video
+    }
+}
+
+public struct TvShowsDTO {
+    
+    public let tvShow: TvShows
+    public let posterImage: Data?
+    
+    public init(tvShow: TvShows = TvShows(), posterImage: Data? = nil) {
+        self.tvShow = tvShow
+        self.posterImage = posterImage
     }
 }

@@ -11,26 +11,67 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TvShowsLandingVC" customModule="TvShows" customModuleProvider="target">
             <connections>
+                <outlet property="tvShowsCV" destination="i2w-oR-8ML" id="3DJ-Xh-gmq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TVShowsLanding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8U-xm-9RB">
-                    <rect key="frame" x="121" y="323" width="133" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mY9-Ec-y9j" userLabel="Header">
+                    <rect key="frame" x="0.0" y="59" width="393" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tv Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mi3-GF-ydc">
+                            <rect key="frame" x="20" y="0.0" width="353" height="40"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="mi3-GF-ydc" firstAttribute="leading" secondItem="mY9-Ec-y9j" secondAttribute="leading" constant="20" id="6mi-WA-3Vw"/>
+                        <constraint firstItem="mi3-GF-ydc" firstAttribute="top" secondItem="mY9-Ec-y9j" secondAttribute="top" id="Bdn-rh-Kbt"/>
+                        <constraint firstAttribute="trailing" secondItem="mi3-GF-ydc" secondAttribute="trailing" constant="20" id="sfU-g7-bKj"/>
+                        <constraint firstAttribute="height" constant="40" id="x5s-j7-gYj"/>
+                        <constraint firstAttribute="bottom" secondItem="mi3-GF-ydc" secondAttribute="bottom" id="xUl-kD-pFc"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgo-cK-HJ1">
+                    <rect key="frame" x="0.0" y="99" width="393" height="719"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="i2w-oR-8ML">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="719"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CvK-pb-XDC">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="50" height="50"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="i2w-oR-8ML" secondAttribute="bottom" id="4qK-96-2tG"/>
+                        <constraint firstItem="i2w-oR-8ML" firstAttribute="leading" secondItem="Zgo-cK-HJ1" secondAttribute="leading" id="8uV-ia-tql"/>
+                        <constraint firstItem="i2w-oR-8ML" firstAttribute="top" secondItem="Zgo-cK-HJ1" secondAttribute="top" id="EZd-PK-unb"/>
+                        <constraint firstAttribute="trailing" secondItem="i2w-oR-8ML" secondAttribute="trailing" id="XPm-M7-Ifb"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="W8U-xm-9RB" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Xhi-Lu-WYI"/>
-                <constraint firstItem="W8U-xm-9RB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="j2h-71-TRu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zgo-cK-HJ1" secondAttribute="trailing" id="K8V-ZK-pcW"/>
+                <constraint firstItem="Zgo-cK-HJ1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NV1-F8-EIb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mY9-Ec-y9j" secondAttribute="trailing" id="WlC-ju-7Kj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Zgo-cK-HJ1" secondAttribute="bottom" id="dLp-ny-OdN"/>
+                <constraint firstItem="mY9-Ec-y9j" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rB3-kp-097"/>
+                <constraint firstItem="mY9-Ec-y9j" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="sGz-KX-T3U"/>
+                <constraint firstItem="Zgo-cK-HJ1" firstAttribute="top" secondItem="mY9-Ec-y9j" secondAttribute="bottom" id="sNz-MN-qc5"/>
             </constraints>
             <point key="canvasLocation" x="118" y="21"/>
         </view>
