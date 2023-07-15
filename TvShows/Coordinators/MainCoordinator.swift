@@ -7,6 +7,8 @@
 
 import UIKit
 
+struct GoToTvShowDetails: Action {}
+
 class MainCoordinator: Coordinator {
     var parentCoordinator: (any Coordinator)?
     var childCoordinators: [String : any Coordinator] = [:]
@@ -22,6 +24,11 @@ class MainCoordinator: Coordinator {
     }
     
     func handleAction(action: Action) {
-        
+        switch action {
+        case _ as GoToTvShowDetails:
+            break
+        default:
+            break
+        }
     }
 }

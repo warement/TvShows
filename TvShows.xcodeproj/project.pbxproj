@@ -18,6 +18,11 @@
 		3774D84C2A548A7900E4047E /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3774D8472A548A4400E4047E /* Data.framework */; };
 		3774D84D2A548A7900E4047E /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3774D8472A548A4400E4047E /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37D1B2792A62C6650081861F /* Ext_Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B2782A62C6650081861F /* Ext_Array.swift */; };
+		37D1B2952A62DA440081861F /* TvShowDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B2932A62DA440081861F /* TvShowDetailsVC.swift */; };
+		37D1B2962A62DA440081861F /* TvShowDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37D1B2942A62DA440081861F /* TvShowDetailsVC.xib */; };
+		37D1B2982A62DA670081861F /* TvShowDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B2972A62DA670081861F /* TvShowDetailsViewModel.swift */; };
+		37D1B29A2A62DAA00081861F /* TvShowDetailsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B2992A62DAA00081861F /* TvShowDetailsState.swift */; };
+		37D1B29C2A62DAAE0081861F /* TvShowDetailsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B29B2A62DAAE0081861F /* TvShowDetailsEvents.swift */; };
 		37E3B3942A50484300453170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3932A50484300453170 /* AppDelegate.swift */; };
 		37E3B39D2A50484700453170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B39C2A50484700453170 /* Assets.xcassets */; };
 		37E3B3A02A50484700453170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B39E2A50484700453170 /* LaunchScreen.storyboard */; };
@@ -92,6 +97,11 @@
 		375F05142A5DBE5A003483B5 /* CollectionViewReusableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewReusableViewHeader.xib; sourceTree = "<group>"; };
 		3774D8412A548A4400E4047E /* Data.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Data.xcodeproj; path = Data/Data.xcodeproj; sourceTree = "<group>"; };
 		37D1B2782A62C6650081861F /* Ext_Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_Array.swift; sourceTree = "<group>"; };
+		37D1B2932A62DA440081861F /* TvShowDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowDetailsVC.swift; sourceTree = "<group>"; };
+		37D1B2942A62DA440081861F /* TvShowDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TvShowDetailsVC.xib; sourceTree = "<group>"; };
+		37D1B2972A62DA670081861F /* TvShowDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowDetailsViewModel.swift; sourceTree = "<group>"; };
+		37D1B2992A62DAA00081861F /* TvShowDetailsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowDetailsState.swift; sourceTree = "<group>"; };
+		37D1B29B2A62DAAE0081861F /* TvShowDetailsEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowDetailsEvents.swift; sourceTree = "<group>"; };
 		37E3B3902A50484300453170 /* TvShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E3B3932A50484300453170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E3B39C2A50484700453170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +176,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		37D1B27E2A62D9050081861F /* TvShowDetails */ = {
+			isa = PBXGroup;
+			children = (
+				37D1B2922A62DA0D0081861F /* Interactors */,
+				37D1B2932A62DA440081861F /* TvShowDetailsVC.swift */,
+				37D1B2942A62DA440081861F /* TvShowDetailsVC.xib */,
+				37D1B2972A62DA670081861F /* TvShowDetailsViewModel.swift */,
+			);
+			path = TvShowDetails;
+			sourceTree = "<group>";
+		};
+		37D1B2922A62DA0D0081861F /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				37D1B2992A62DAA00081861F /* TvShowDetailsState.swift */,
+				37D1B29B2A62DAAE0081861F /* TvShowDetailsEvents.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
 		37E3B3872A50484200453170 = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				37E3B3AC2A504FFB00453170 /* TvShowsLanding */,
+				37D1B27E2A62D9050081861F /* TvShowDetails */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -398,6 +429,7 @@
 				37E3B3A02A50484700453170 /* LaunchScreen.storyboard in Resources */,
 				37362BCB2A5AE8BF00E2BAB7 /* ReusableCollectionViewCell.xib in Resources */,
 				37582C6B2A5B01750008BCEC /* GenreBadge.xib in Resources */,
+				37D1B2962A62DA440081861F /* TvShowDetailsVC.xib in Resources */,
 				37E3B3B02A50504500453170 /* TvShowsLandingVC.xib in Resources */,
 				37E3B39D2A50484700453170 /* Assets.xcassets in Resources */,
 				375F05162A5DBE5A003483B5 /* CollectionViewReusableViewHeader.xib in Resources */,
@@ -455,10 +487,14 @@
 			files = (
 				37E3B3D12A51A52400453170 /* TvShowsLandingState.swift in Sources */,
 				37E3B3D62A51A75E00453170 /* BaseViewModel.swift in Sources */,
+				37D1B29C2A62DAAE0081861F /* TvShowDetailsEvents.swift in Sources */,
 				37E3B3B42A50587000453170 /* MainCoordinator.swift in Sources */,
 				37582C652A5B015A0008BCEC /* GenreBadge.swift in Sources */,
 				37E3B3AF2A50504500453170 /* TvShowsLandingVC.swift in Sources */,
 				37E3B3CF2A51A4DA00453170 /* TvShowsLandingViewModel.swift in Sources */,
+				37D1B2982A62DA670081861F /* TvShowDetailsViewModel.swift in Sources */,
+				37D1B2952A62DA440081861F /* TvShowDetailsVC.swift in Sources */,
+				37D1B29A2A62DAA00081861F /* TvShowDetailsState.swift in Sources */,
 				37E3B3D82A51AD4B00453170 /* BaseNavigation.swift in Sources */,
 				37362BCA2A5AE8BF00E2BAB7 /* ReusableCollectionViewCell.swift in Sources */,
 				37E3B3B22A50550D00453170 /* Coordinator.swift in Sources */,
