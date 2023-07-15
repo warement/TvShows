@@ -71,7 +71,7 @@ public struct TvShows: Codable, Equatable {
     }
 }
 
-public struct TvShowsDTO {
+public struct TvShowsDTO: Equatable {
     
     public let tvShow: TvShows
     public let posterImage: Data?

@@ -17,6 +17,7 @@
 		375F05162A5DBE5A003483B5 /* CollectionViewReusableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 375F05142A5DBE5A003483B5 /* CollectionViewReusableViewHeader.xib */; };
 		3774D84C2A548A7900E4047E /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3774D8472A548A4400E4047E /* Data.framework */; };
 		3774D84D2A548A7900E4047E /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3774D8472A548A4400E4047E /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37D1B2792A62C6650081861F /* Ext_Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B2782A62C6650081861F /* Ext_Array.swift */; };
 		37E3B3942A50484300453170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B3932A50484300453170 /* AppDelegate.swift */; };
 		37E3B39D2A50484700453170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B39C2A50484700453170 /* Assets.xcassets */; };
 		37E3B3A02A50484700453170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E3B39E2A50484700453170 /* LaunchScreen.storyboard */; };
@@ -90,6 +91,7 @@
 		375F05132A5DBE5A003483B5 /* CollectionViewReusableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewReusableViewHeader.swift; sourceTree = "<group>"; };
 		375F05142A5DBE5A003483B5 /* CollectionViewReusableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewReusableViewHeader.xib; sourceTree = "<group>"; };
 		3774D8412A548A4400E4047E /* Data.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Data.xcodeproj; path = Data/Data.xcodeproj; sourceTree = "<group>"; };
+		37D1B2782A62C6650081861F /* Ext_Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_Array.swift; sourceTree = "<group>"; };
 		37E3B3902A50484300453170 /* TvShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E3B3932A50484300453170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E3B39C2A50484700453170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				37E3B3DC2A51B25200453170 /* Ext_RXSwift.swift */,
+				37D1B2782A62C6650081861F /* Ext_Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				37E3B3D82A51AD4B00453170 /* BaseNavigation.swift in Sources */,
 				37362BCA2A5AE8BF00E2BAB7 /* ReusableCollectionViewCell.swift in Sources */,
 				37E3B3B22A50550D00453170 /* Coordinator.swift in Sources */,
+				37D1B2792A62C6650081861F /* Ext_Array.swift in Sources */,
 				37E3B3942A50484300453170 /* AppDelegate.swift in Sources */,
 				37E3B3D32A51A53600453170 /* TvShowsLandingEvents.swift in Sources */,
 				37582C7D2A5B04B40008BCEC /* Ext_UIColor.swift in Sources */,

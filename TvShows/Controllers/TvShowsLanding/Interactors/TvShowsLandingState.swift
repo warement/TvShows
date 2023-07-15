@@ -7,6 +7,7 @@
 
 import Foundation
 import Domain
+import RxDataSources
 
 enum TvShowsCategories {
     case popular, topRated, onTheAir
@@ -18,11 +19,28 @@ class TvShowsLandingState: BaseState {
     let topRatedTvShows: [TvShowsDTO]
     let onTheAirTvShows: [TvShowsDTO]
     
+    var tvShowsDisplayable: [SectionModel<String, TvShowsDTO>] {
+        var sections: [SectionModel<String, TvShowsDTO>] = []
+        if popularTvShows.isNotEmpty {
+            sections.append(SectionModel(model: "Popular", items: popularTvShows))
+        }
+        
+        if topRatedTvShows.isNotEmpty {
+            sections.append(SectionModel(model: "Top Rated", items: topRatedTvShows))
+        }
+        
+        if onTheAirTvShows.isNotEmpty {
+            sections.append(SectionModel(model: "On The Air", items: onTheAirTvShows))
+        }
+        
+        return sections
+    }
+    
     init (
         isLoading: Bool = false,
-        popularTvShows: [TvShowsDTO] = [TvShowsDTO()],
-        topRatedTvShows: [TvShowsDTO] = [TvShowsDTO()],
-        onTheAirTvShows: [TvShowsDTO] = [TvShowsDTO()]
+        popularTvShows: [TvShowsDTO] = [],
+        topRatedTvShows: [TvShowsDTO] = [],
+        onTheAirTvShows: [TvShowsDTO] = []
     ) {
         self.isLoading = isLoading
         self.popularTvShows = popularTvShows

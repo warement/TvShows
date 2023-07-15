@@ -23,10 +23,12 @@ struct Section {
 }
 
 class TvShowsLandingVC: UIViewController {
+    
     private enum ConstIdentifiers {
         static let reusableCollectionViewCell = "ReusableCollectionViewCell"
         static let collectionViewHeader = "CollectionViewReusableViewHeader"
     }
+    
     @IBOutlet weak var tvShowsCV: UICollectionView!
     
     
@@ -115,60 +117,40 @@ class TvShowsLandingVC: UIViewController {
                 bundle: Bundle(for: type(of: self))),
             forCellWithReuseIdentifier: ConstIdentifiers.reusableCollectionViewCell
         )
-        tvShowsCV.dataSource = self
-        tvShowsCV.delegate = self
+        
         //tvShowsCV.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
     }
     
     func setupObservers() {
-        self.viewModel.stateObserver
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] tvShows in
-                print("....popular: \(tvShows.popularTvShows.count), topRated: \(tvShows.topRatedTvShows.count), onTheAir: \(tvShows.onTheAirTvShows.count).....")
-                self?.sections = [
-                    Section(sectionName: "Popular", tvShows: tvShows.popularTvShows),
-                    Section(sectionName: "Top Rated", tvShows: tvShows.topRatedTvShows),
-                    Section(sectionName: "On The Air", tvShows: tvShows.onTheAirTvShows)
-                ]
-                self?.tvShowsCV.reloadData()
-            })
-            .disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - Collection View Delegate & DataSource
-extension TvShowsLandingVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sections.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        sections[section].tvShows.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ConstIdentifiers.reusableCollectionViewCell, for: indexPath) as? ReusableCollectionViewCell else { fatalError("DequeueReusableCell failed while casting") }
-        let tvShow = sections[indexPath.section].tvShows[indexPath.row]
-        cell.setup(tvShow: tvShow)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        guard let headerView = collectionView.dequeueReusableSupplementaryView(
-            ofKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: ConstIdentifiers.collectionViewHeader,
-            for: indexPath
-        ) as? CollectionViewReusableViewHeader
-        else {
-            fatalError("Header for reuse identifier \(ConstIdentifiers.collectionViewHeader) NOT FOUND!!")
+        let tvShowsDataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, TvShowsDTO>> { dataSource, collectionView, indexPath, item in
+            guard let cell = self.tvShowsCV.dequeueReusableCell(
+                withReuseIdentifier: ConstIdentifiers.reusableCollectionViewCell,
+                for: indexPath) as? ReusableCollectionViewCell
+            else { return UICollectionViewCell() }
+            
+            cell.setup(tvShow: item)
+            return cell
+        } configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: ConstIdentifiers.collectionViewHeader,
+                for: indexPath
+            ) as? CollectionViewReusableViewHeader
+            else { return UICollectionReusableView() }
+            
+            headerView.setupView(title: dataSource[indexPath.section].model)
+            return headerView
         }
-        let sectionName = sections[indexPath.section].sectionName
-
-        headerView.setupView(title: sectionName)
-
-        return headerView
+        
+        viewModel.stateObserver
+            .observe(on: MainScheduler.instance)
+            .map { newState -> [SectionModel<String, TvShowsDTO>]  in
+                return newState.tvShowsDisplayable
+            }
+            .distinctUntilChanged()
+            .bind(to: tvShowsCV.rx.items(dataSource: tvShowsDataSource))
+            .disposed(by: rx.disposeBag)
     }
 }
 
