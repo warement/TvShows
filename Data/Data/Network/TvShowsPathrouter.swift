@@ -23,7 +23,7 @@ public enum TvShowsPathrouter: URLRequestConvertible {
         switch self {
         case .getPopularTvShows,
                 .getTopRatedTvShows,
-                .getOnTheAirTvShows
+                .getOnTheAirTvShows,
                 .getTvShowDetails,
                 .getImage:
             return .get

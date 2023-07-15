@@ -8,35 +8,39 @@
 import Foundation
 import Domain
 
+enum TvShowsCategories {
+    case popular, topRated, onTheAir
+}
+
 class TvShowsLandingState: BaseState {
     let isLoading: Bool
     let popularTvShows: [TvShowsDTO]
     let topRatedTvShows: [TvShowsDTO]
-    let imageData: Data
+    let onTheAirTvShows: [TvShowsDTO]
     
     init (
         isLoading: Bool = false,
         popularTvShows: [TvShowsDTO] = [TvShowsDTO()],
         topRatedTvShows: [TvShowsDTO] = [TvShowsDTO()],
-        imageData: Data = Data()
+        onTheAirTvShows: [TvShowsDTO] = [TvShowsDTO()]
     ) {
         self.isLoading = isLoading
         self.popularTvShows = popularTvShows
         self.topRatedTvShows = topRatedTvShows
-        self.imageData = imageData
+        self.onTheAirTvShows = onTheAirTvShows
     }
     
     func copy(
         isLoading: Bool? = nil,
         popularTvShows: [TvShowsDTO]? = nil,
         topRatedTvShows: [TvShowsDTO]? = nil,
-        imageData: Data? = nil
+        onTheAirTvShows: [TvShowsDTO]? = nil
     ) -> TvShowsLandingState {
         return TvShowsLandingState(
             isLoading: isLoading ?? self.isLoading,
             popularTvShows: popularTvShows ?? self.popularTvShows,
             topRatedTvShows: topRatedTvShows ?? self.topRatedTvShows,
-            imageData: imageData ?? self.imageData
+            onTheAirTvShows: onTheAirTvShows ?? self.onTheAirTvShows
         )
     }
     

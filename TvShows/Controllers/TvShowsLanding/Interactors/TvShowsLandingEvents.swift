@@ -9,7 +9,5 @@ import Foundation
 
 enum TvShowsLandingEvents {
     case fetchData
-    case getPopularTvShows
     case getTvShowDetails(id: String)
-    case getTvShowImage
 }

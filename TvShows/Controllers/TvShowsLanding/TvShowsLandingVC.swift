@@ -48,61 +48,35 @@ class TvShowsLandingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.onTriggeredEvent(event: .getPopularTvShows)
+        viewModel.onTriggeredEvent(event: .fetchData)
         setupCollectionView()
         setCardsLayout()
         setupObservers()
     }
     
     // MARK: - Setup Collection View
-    private func getCardsLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-       // let layout = StickyHeaderFlowLayout()
-
-        //layout.headerReferenceSize = CGSize(width: 150, height: 0)
-        //layout.sectionHeadersPinToVisibleBounds = true
-        //layout.itemSize = CGSize(width: 143, height: 283)
-        //layout.minimumInteritemSpacing = 16
-        //layout.minimumLineSpacing = 16
-        //layout.scrollDirection = .horizontal
-        //layout.sectionInset = UIEdgeInsets(top: 80, left: 24, bottom: 0, right: 0)
-        return layout
-    }
-    
     private func getCompositionLayout() -> UICollectionViewCompositionalLayout {
-//        let compositionalLayout: UICollectionViewCompositionalLayout = {
-//            let fraction: CGFloat = 1 / 3
-//            let inset: CGFloat = 2.5
-        var fractionHeight: CGFloat = 0
-        var fractionWidth: CGFloat = 0
         var absoluteWidth: CGFloat = 0
         var absoluteHeight: CGFloat = 0
         
         let compositionalLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, environment) -> NSCollectionLayoutSection? in
             switch sectionIndex {
             case 0:
-                fractionHeight = 1/1.5
-                fractionWidth = 1/3
                 absoluteWidth = 256
                 absoluteHeight = 384
             default:
-                fractionHeight = 1/1.75
-                fractionWidth = 1/5
                 absoluteWidth = 150
                 absoluteHeight = 225
             }
             
-            let itemsPerRow = sectionIndex + 3
             let inset: CGFloat = 8
             
             // Item
-            //let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fractionWidth), heightDimension: .fractionalHeight(1))
             let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(absoluteWidth), heightDimension: .absolute(absoluteHeight))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
             
             // Group
-           // let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.5), heightDimension: .fractionalWidth(fractionHeight))
             let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(absoluteWidth), heightDimension: .absolute(absoluteHeight))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
@@ -122,14 +96,9 @@ class TvShowsLandingVC: UIViewController {
     }
     
     private func setCardsLayout() {
-        let layout = getCompositionLayout()//getCardsLayout()
+        let layout = getCompositionLayout()
         tvShowsCV.collectionViewLayout = layout
-        
-        
-       // tvShowsCV.collectionViewLayout.invalidateLayout()
-       // tvShowsCV.collectionViewLayout = layout
-       // layout.invalidateLayout()
-        tvShowsCV.reloadData()
+        //tvShowsCV.reloadData()
     }
 
     func setupCollectionView() {
@@ -151,19 +120,15 @@ class TvShowsLandingVC: UIViewController {
         //tvShowsCV.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
     }
     
-    // MARK: - Setup TableView
-
-    
     func setupObservers() {
         self.viewModel.stateObserver
             .observe(on: MainScheduler.instance)
-            .compactMap {
-                $0.popularTvShows
-            }
             .subscribe(onNext: { [weak self] tvShows in
+                print("....popular: \(tvShows.popularTvShows.count), topRated: \(tvShows.topRatedTvShows.count), onTheAir: \(tvShows.onTheAirTvShows.count).....")
                 self?.sections = [
-                    Section(sectionName: "Popular Tv Shows", tvShows: tvShows),
-                    Section(sectionName: "Top Rated TV Shows", tvShows: tvShows)
+                    Section(sectionName: "Popular", tvShows: tvShows.popularTvShows),
+                    Section(sectionName: "Top Rated", tvShows: tvShows.topRatedTvShows),
+                    Section(sectionName: "On The Air", tvShows: tvShows.onTheAirTvShows)
                 ]
                 self?.tvShowsCV.reloadData()
             })
@@ -200,7 +165,6 @@ extension TvShowsLandingVC: UICollectionViewDelegate, UICollectionViewDataSource
             fatalError("Header for reuse identifier \(ConstIdentifiers.collectionViewHeader) NOT FOUND!!")
         }
         let sectionName = sections[indexPath.section].sectionName
-        //headerView.frame.size.height = 40
 
         headerView.setupView(title: sectionName)
 
