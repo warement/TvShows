@@ -11,17 +11,16 @@ import Alamofire
 
 class TvShowsDatacontextImpl: TvShowsDataContext {
     
-    private var networkProvider: NetworkProvider
+    private var sessionManager: Session
     
     public init(
-        networkProvider: NetworkProvider
+        sessionManager: Session
     ) {
-        self.networkProvider = networkProvider
+        self.sessionManager = sessionManager
     }
     
     func getPopularTvShows() async -> Result<PagedListResult<TvShows>?, BaseException> {
-        return await networkProvider
-            .sessionManager.request(TvShowsPathrouter.getPopularTvShows)
+        return await sessionManager.request(TvShowsPathrouter.getPopularTvShows)
             .validateRawResponseWrapper(
                 fromType: PagedGenericResponse<[TvShows]>.self,
                 mapperType: PagedListResult<TvShows>.self,
@@ -32,8 +31,7 @@ class TvShowsDatacontextImpl: TvShowsDataContext {
     }
     
     func getTopRatedTvShows() async -> Result<PagedListResult<TvShows>?, BaseException> {
-        return await networkProvider
-            .sessionManager.request(TvShowsPathrouter.getTopRatedTvShows)
+        return await sessionManager.request(TvShowsPathrouter.getTopRatedTvShows)
             .validateRawResponseWrapper(
                 fromType: PagedGenericResponse<[TvShows]>.self,
                 mapperType: PagedListResult<TvShows>.self,
@@ -44,8 +42,7 @@ class TvShowsDatacontextImpl: TvShowsDataContext {
     }
     
     func getOnTheAirTvShows() async -> Result<PagedListResult<TvShows>?, BaseException> {
-        return await networkProvider
-            .sessionManager.request(TvShowsPathrouter.getOnTheAirTvShows)
+        return await sessionManager.request(TvShowsPathrouter.getOnTheAirTvShows)
             .validateRawResponseWrapper(
                 fromType: PagedGenericResponse<[TvShows]>.self,
                 mapperType: PagedListResult<TvShows>.self,
@@ -56,14 +53,12 @@ class TvShowsDatacontextImpl: TvShowsDataContext {
     }
     
     func getTvShowDetails(id: String) async -> Result<TvShowDetails?, BaseException> {
-        return await networkProvider
-            .sessionManager.request(TvShowsPathrouter.getTvShowDetails(id: id))
+        return await sessionManager.request(TvShowsPathrouter.getTvShowDetails(id: id))
             .validateRawResponseWrapper(fromType: TvShowDetails.self)
     }
     
     func getTvShowImage(size: String, path: String) async -> Result<Data?, BaseException> {
-        return await networkProvider
-            .sessionManager.request(TvShowsPathrouter.getImage(size: size, path: path))
+        return await sessionManager.request(TvShowsPathrouter.getImage(size: size, path: path))
             .validateImageResponse()
     }
 }

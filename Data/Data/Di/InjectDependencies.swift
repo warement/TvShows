@@ -9,7 +9,7 @@ import Foundation
 import Domain
 
 private struct TvShowsDataContextProvider: InjectionKey {
-    static var currentValue: TvShowsDataContext = TvShowsDatacontextImpl(networkProvider: NetworkProviderImpl())
+    static var currentValue: TvShowsDataContext = TvShowsDatacontextImpl(sessionManager: NetworkProviderImpl().sessionManager)
 }
 
 extension InjectedValues {
