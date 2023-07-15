@@ -15,12 +15,12 @@ enum TvShowsCategories {
 
 class TvShowsLandingState: BaseState {
     let isLoading: Bool
-    let popularTvShows: [TvShowsDTO]
-    let topRatedTvShows: [TvShowsDTO]
-    let onTheAirTvShows: [TvShowsDTO]
+    let popularTvShows: [TvShows]
+    let topRatedTvShows: [TvShows]
+    let onTheAirTvShows: [TvShows]
     
-    var tvShowsDisplayable: [SectionModel<String, TvShowsDTO>] {
-        var sections: [SectionModel<String, TvShowsDTO>] = []
+    var tvShowsDisplayable: [SectionModel<String, TvShows>] {
+        var sections: [SectionModel<String, TvShows>] = []
         if popularTvShows.isNotEmpty {
             sections.append(SectionModel(model: "Popular", items: popularTvShows))
         }
@@ -38,9 +38,9 @@ class TvShowsLandingState: BaseState {
     
     init (
         isLoading: Bool = false,
-        popularTvShows: [TvShowsDTO] = [],
-        topRatedTvShows: [TvShowsDTO] = [],
-        onTheAirTvShows: [TvShowsDTO] = []
+        popularTvShows: [TvShows] = [],
+        topRatedTvShows: [TvShows] = [],
+        onTheAirTvShows: [TvShows] = []
     ) {
         self.isLoading = isLoading
         self.popularTvShows = popularTvShows
@@ -50,9 +50,9 @@ class TvShowsLandingState: BaseState {
     
     func copy(
         isLoading: Bool? = nil,
-        popularTvShows: [TvShowsDTO]? = nil,
-        topRatedTvShows: [TvShowsDTO]? = nil,
-        onTheAirTvShows: [TvShowsDTO]? = nil
+        popularTvShows: [TvShows]? = nil,
+        topRatedTvShows: [TvShows]? = nil,
+        onTheAirTvShows: [TvShows]? = nil
     ) -> TvShowsLandingState {
         return TvShowsLandingState(
             isLoading: isLoading ?? self.isLoading,

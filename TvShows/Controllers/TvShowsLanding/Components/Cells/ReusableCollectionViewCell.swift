@@ -7,6 +7,9 @@
 
 import UIKit
 import Domain
+import Data
+import Alamofire
+import AlamofireImage
 
 class ReusableCollectionViewCell: UICollectionViewCell {
     
@@ -20,10 +23,13 @@ class ReusableCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
     }
     
-    func setup(tvShow: TvShowsDTO) {
-        if let posterImage = tvShow.posterImage {
-            tvShowImageView.image = UIImage(data: posterImage)
-        }
+    func setup(tvShow: TvShows) {
+        
+        guard let imageUrl: URL = (
+            URL(string: ConstantKeys.imagesBaseUrl)?.appendingPathComponent("/\(ImageSizes.PosterSizes.w342)\(tvShow.posterPath ?? "")")
+        ) else { return }
+  
+        tvShowImageView.af.setImage(withURL: imageUrl)
     }
 
 }

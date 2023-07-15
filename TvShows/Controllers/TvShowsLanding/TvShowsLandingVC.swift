@@ -11,31 +11,15 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-struct Section {
-    
-    let sectionName: String
-    let tvShows: [TvShowsDTO]
-    
-    internal init(sectionName: String, tvShows: [TvShowsDTO]) {
-        self.sectionName = sectionName
-        self.tvShows = tvShows
-    }
-}
-
 class TvShowsLandingVC: UIViewController {
     
+    @IBOutlet weak var tvShowsCV: UICollectionView!
+    
+    private var viewModel: TvShowsLandingViewModel
     private enum ConstIdentifiers {
         static let reusableCollectionViewCell = "ReusableCollectionViewCell"
         static let collectionViewHeader = "CollectionViewReusableViewHeader"
     }
-    
-    @IBOutlet weak var tvShowsCV: UICollectionView!
-    
-    
-    
-    private var viewModel: TvShowsLandingViewModel
-       
-    private var sections: [Section] = []
     
     let disposeBag = DisposeBag()
     
@@ -123,7 +107,7 @@ class TvShowsLandingVC: UIViewController {
     
     func setupObservers() {
         
-        let tvShowsDataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, TvShowsDTO>> { dataSource, collectionView, indexPath, item in
+        let tvShowsDataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, TvShows>> { dataSource, collectionView, indexPath, item in
             guard let cell = self.tvShowsCV.dequeueReusableCell(
                 withReuseIdentifier: ConstIdentifiers.reusableCollectionViewCell,
                 for: indexPath) as? ReusableCollectionViewCell
@@ -145,7 +129,7 @@ class TvShowsLandingVC: UIViewController {
         
         viewModel.stateObserver
             .observe(on: MainScheduler.instance)
-            .map { newState -> [SectionModel<String, TvShowsDTO>]  in
+            .map { newState -> [SectionModel<String, TvShows>]  in
                 return newState.tvShowsDisplayable
             }
             .distinctUntilChanged()
