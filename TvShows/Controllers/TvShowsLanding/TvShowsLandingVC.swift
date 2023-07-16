@@ -35,8 +35,8 @@ class TvShowsLandingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.state.accept(viewModel.state.value.copy(topRatedTvShows: [TvShows()]))
-        //viewModel.onTriggeredEvent(event: .fetchData)
+        //viewModel.state.accept(viewModel.state.value.copy(topRatedTvShows: [TvShows()]))
+        viewModel.onTriggeredEvent(event: .fetchData)
         setupCollectionView()
         setCardsLayout()
         setupObservers()
@@ -138,6 +138,7 @@ class TvShowsLandingVC: UIViewController {
             .disposed(by: rx.disposeBag)
         
         tvShowsCV.rx.itemSelected
+            .observe(on: MainScheduler.instance)
             .map { indexPath in
                 return tvShowsDataSource[indexPath]
             }

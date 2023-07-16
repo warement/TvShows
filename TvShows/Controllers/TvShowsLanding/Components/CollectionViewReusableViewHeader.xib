@@ -28,7 +28,6 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="LNy-UF-uHa" secondAttribute="trailing" id="It8-4q-ead"/>
-                        <constraint firstAttribute="height" constant="41" id="Zpn-LW-NYG"/>
                         <constraint firstItem="LNy-UF-uHa" firstAttribute="top" secondItem="Pw6-dZ-zJH" secondAttribute="top" id="cVE-ua-rgc"/>
                         <constraint firstAttribute="bottom" secondItem="LNy-UF-uHa" secondAttribute="bottom" id="fKv-FQ-Lkc"/>
                         <constraint firstItem="LNy-UF-uHa" firstAttribute="leading" secondItem="Pw6-dZ-zJH" secondAttribute="leading" constant="12" id="wlj-5D-yPD"/>

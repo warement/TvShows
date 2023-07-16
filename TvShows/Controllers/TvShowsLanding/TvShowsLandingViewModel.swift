@@ -36,18 +36,30 @@ class TvShowsLandingViewModel: BaseViewModel {
     func onTriggeredEvent(event: Event) {
         switch event {
         case .fetchData:
-            getPopularTvShows()
-            getTopRatedTvShows()
-            getOnTheAirTvShows()
+            fetchData()
         case .getTvShowDetails(let id):
             getTvShowDetails(id: id)
         }
     }
     
+    private func fetchData() {
+        let dispatchGroup = DispatchGroup()
+        state.accept(state.value.copy(isLoading: true))
+        getPopularTvShows(dispatchGroup: dispatchGroup)
+        getTopRatedTvShows(dispatchGroup: dispatchGroup)
+        getOnTheAirTvShows(dispatchGroup: dispatchGroup)
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            guard let self = self else { return }
+            self.state.accept(self.state.value.copy(isLoading: false))
+        }
+    }
+    
     // MARK: - Get calls
-    private func getPopularTvShows() {
+    private func getPopularTvShows(dispatchGroup: DispatchGroup) {
+        dispatchGroup.enter()
         Task.init {
             let result = await tvShowsDataContext.getPopularTvShows()
+            dispatchGroup.leave()
             switch result {
             case .success(let popularTvShowsPageListResult):
                 state.accept(state.value.copy(popularTvShows: popularTvShowsPageListResult?.results))
@@ -57,9 +69,11 @@ class TvShowsLandingViewModel: BaseViewModel {
         }
     }
     
-    private func getTopRatedTvShows() {
+    private func getTopRatedTvShows(dispatchGroup: DispatchGroup) {
+        dispatchGroup.enter()
         Task.init {
             let result = await tvShowsDataContext.getTopRatedTvShows()
+            dispatchGroup.leave()
             switch result {
             case .success(let topRatedTvShowsPageListResult):
                 state.accept(state.value.copy(topRatedTvShows: topRatedTvShowsPageListResult?.results))
@@ -69,9 +83,11 @@ class TvShowsLandingViewModel: BaseViewModel {
         }
     }
     
-    private func getOnTheAirTvShows() {
+    private func getOnTheAirTvShows(dispatchGroup: DispatchGroup) {
+        dispatchGroup.enter()
         Task.init {
             let result = await tvShowsDataContext.getOnTheAirTvShows()
+            dispatchGroup.leave()
             switch result {
             case .success(let onTheAirTvShowsPageListResult):
                 state.accept(state.value.copy(onTheAirTvShows: onTheAirTvShowsPageListResult?.results))
