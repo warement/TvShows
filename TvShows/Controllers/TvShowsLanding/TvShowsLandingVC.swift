@@ -13,6 +13,7 @@ import RxDataSources
 
 class TvShowsLandingVC: UIViewController {
     
+    @IBOutlet weak var headerTitleLbl: UILabel!
     @IBOutlet weak var tvShowsCV: UICollectionView!
     
     private var viewModel: TvShowsLandingViewModel
@@ -34,10 +35,12 @@ class TvShowsLandingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.onTriggeredEvent(event: .fetchData)
+        viewModel.state.accept(viewModel.state.value.copy(topRatedTvShows: [TvShows()]))
+        //viewModel.onTriggeredEvent(event: .fetchData)
         setupCollectionView()
         setCardsLayout()
         setupObservers()
+        headerTitleLbl.attributedText = "Tv Shows".with(.title1(weight: .BOLD, color: .tintPrimary))
     }
     
     // MARK: - Setup Collection View
@@ -129,12 +132,20 @@ class TvShowsLandingVC: UIViewController {
         
         viewModel.stateObserver
             .observe(on: MainScheduler.instance)
-            .map { newState -> [SectionModel<String, TvShows>]  in
-                return newState.tvShowsDisplayable
-            }
+            .map { $0.tvShowsDisplayable }
             .distinctUntilChanged()
             .bind(to: tvShowsCV.rx.items(dataSource: tvShowsDataSource))
             .disposed(by: rx.disposeBag)
+        
+        tvShowsCV.rx.itemSelected
+            .map { indexPath in
+                return tvShowsDataSource[indexPath]
+            }
+            .subscribe(onNext: { item in
+                self.viewModel.onTriggeredEvent(event: .getTvShowDetails(id: item.id?.description ?? ""))
+                
+            }).disposed(by: rx.disposeBag)
+        
     }
 }
 

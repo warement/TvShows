@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TvShowsLandingVC" customModule="TvShows" customModuleProvider="target">
             <connections>
+                <outlet property="headerTitleLbl" destination="mi3-GF-ydc" id="VxJ-Sv-K4p"/>
                 <outlet property="tvShowsCV" destination="i2w-oR-8ML" id="3DJ-Xh-gmq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mY9-Ec-y9j" userLabel="Header">
-                    <rect key="frame" x="0.0" y="59" width="393" height="40"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tv Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mi3-GF-ydc">
                             <rect key="frame" x="20" y="0.0" width="353" height="40"/>
@@ -40,10 +41,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgo-cK-HJ1">
-                    <rect key="frame" x="0.0" y="99" width="393" height="719"/>
+                    <rect key="frame" x="0.0" y="40" width="393" height="812"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="i2w-oR-8ML">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="719"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="812"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CvK-pb-XDC">
                                 <size key="itemSize" width="128" height="128"/>

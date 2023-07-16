@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Domain
 
-struct GoToTvShowDetails: Action {}
+struct GoToTvShowDetails: Action {
+    let tvShow: TvShowDetails
+}
 
 class MainCoordinator: Coordinator {
     var parentCoordinator: (any Coordinator)?
@@ -25,8 +28,11 @@ class MainCoordinator: Coordinator {
     
     func handleAction(action: Action) {
         switch action {
-        case _ as GoToTvShowDetails:
-            break
+        case let action as GoToTvShowDetails:
+            let viewModel = TvShowDetailsViewModel(actionHandler: self, tvShow: action.tvShow)
+            let vc = TvShowDetailsVC(viewModel: viewModel)
+            navigationController.pushViewController(vc, animated: true)
+            //vc.navigationController?.navigation
         default:
             break
         }

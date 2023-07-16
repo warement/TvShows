@@ -82,15 +82,18 @@ class TvShowsLandingViewModel: BaseViewModel {
     }
     
     private func getTvShowDetails(id: String) {
-        Task.init {
-            let result = await tvShowsDataContext.getTvShowDetails(id: id)
-            switch result {
-            case .success(let tvShowDetails):
-                print("tvShow details are: \(String(describing: tvShowDetails))")
-            case .failure(let error):
-                self.handleErrors(error: error)
-            }
-        }
+        let tvShow: TvShowDetails = TvShowDetails(episodeRunTime: [55], firstAirDate: "2023-06-21", genres: [Genres(id: 18, name: "Drama")], id: 114472, inProduction: true, languages: ["en"], name: "Secret Invasion", numberOfEpisodes: 6, numberOfSeasons: 1, overview: "Nick Fury and Talos discover a faction of shapeshifting Skrulls who have been infiltrating Earth for years", status: "Returning Series", tagline: "Who do you trust?", type: "Miniseries", voteAverage: 7.4, voteCount: 281)
+        actionHandler?.handleAction(action: GoToTvShowDetails(tvShow: tvShow))
+//        Task.init {
+//            let result = await tvShowsDataContext.getTvShowDetails(id: id)
+//            switch result {
+//            case .success(let tvShowDetails):
+//                print("tvShow details are: \(String(describing: tvShowDetails))")
+//                actionHandler?.handleAction(action: GoToTvShowDetails())
+//            case .failure(let error):
+//                self.handleErrors(error: error)
+//            }
+//        }
     }
     
     private func getTvShowImage(size: String, path: String) async -> Data? {

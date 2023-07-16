@@ -27,9 +27,10 @@ class TvShowDetailsViewModel: BaseViewModel {
         return state.asObservable()
     }
     
-    init(actionHandler: BaseActionHandler) {
+    init(actionHandler: BaseActionHandler, tvShow: TvShowDetails) {
         self.actionHandler = actionHandler
         state = BehaviorRelay(value: TvShowDetailsState())
+        state.accept(state.value.copy(tvShow: tvShow))
         commonInit()
     }
     

@@ -17,6 +17,6 @@ class CollectionViewReusableViewHeader: UICollectionReusableView {
     }
     
     func setupView(title: String) {
-        titleLbl.text = title
+        titleLbl.attributedText = title.with(.title1(weight: .BOLD, color: .tintSecondary))
     }
 }
