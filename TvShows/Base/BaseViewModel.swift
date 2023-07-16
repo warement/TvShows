@@ -41,22 +41,20 @@ extension BaseViewModel {
     private func setUpBaseStateObserver() {
         stateObserver
             .observe(on: MainScheduler.instance)
-            .map { newState -> Bool in
-                return newState.isLoading
-            }
+            .map { $0.isLoading }
             .distinctUntilChanged()
             .subscribe(onNext: { isLoading in
                 if isLoading {
-                    //AlertHelper.shared.showLoader()
+                    self.actionHandler?.handleBaseAction(action: ShowLoaderAction())
                 } else {
-                    //AlertHelper.shared.hideLoader()
+                    self.actionHandler?.handleBaseAction(action: HideLoaderAction())
                 }
             }).disposed(by: rx.disposeBag)
     }
 }
 
 // MARK: - BaseErrorHandler
-public protocol BaseErrorHandler: AnyObject {
+public protocol BaseErrorHandler: AnyObject, BaseActionDispatcher {
     
     @discardableResult
     func handleErrors(error: BaseException) -> Bool

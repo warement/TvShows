@@ -31,6 +31,7 @@ target 'TvShows' do
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
   pod 'RxDataSources', '~> 5.0'
+  pod 'lottie-ios', '3.3.0'
   pod 'BonMot'
   data_pods
 end

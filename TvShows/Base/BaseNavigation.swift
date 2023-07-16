@@ -55,30 +55,13 @@ public struct ReloadViewControllerAction: Action {
     
 }
 
-//public struct ShowBottomSheetAction: Action {
-//
-//    public var data: BottomSheetData
-//    public var callback: ((GenericBottomSheetVC) -> Void)? = nil
-//    public var closeAction: (() -> Void)? = nil
-//
-//    public init(
-//        data: BottomSheetData,
-//        callback: ((GenericBottomSheetVC) -> Void)? = nil,
-//        closeAction: (() -> Void)? = nil
-//    ) {
-//        self.data = data
-//        self.callback = callback
-//        self.closeAction = closeAction
-//    }
-//}
+public struct ShowLoaderAction: Action {
+    public init() {}
+}
 
-//public struct ShowLoaderAction: Action {
-//    public init() {}
-//}
-//
-//public struct HideLoaderAction: Action {
-//    public init() {}
-//}
+public struct HideLoaderAction: Action {
+    public init() {}
+}
 
 public struct DismissAction: Action {
     public init() {}
@@ -114,10 +97,10 @@ extension Coordinator {
                     return
                 }
             })
-//        case _ as ShowLoaderAction:
-//            GenericLoader.show()
-//        case _ as HideLoaderAction:
-//            GenericLoader.hide()
+        case _ as ShowLoaderAction:
+            GenericLoader.show()
+        case _ as HideLoaderAction:
+            GenericLoader.hide()
         case _ as DismissAction:
             if navigationController.presentedViewController == nil {
                 dismiss(animated: true, completion: nil)
