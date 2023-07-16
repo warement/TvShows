@@ -15,5 +15,3 @@ public enum ConstantKeys {
     static public let baseURL = "https://api.themoviedb.org/3"
     static public let imagesBaseUrl = "https://image.tmdb.org/t/p"
 }
-
-var placeHolderIdSerieId = 0

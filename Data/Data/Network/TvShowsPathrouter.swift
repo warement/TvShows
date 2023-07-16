@@ -97,13 +97,6 @@ public enum TvShowsPathrouter: URLRequestConvertible {
             ]
         default:
             break
-            
-            //            ///# Login Endpoints
-            //        case .loginWithCredentials(let credentials),
-            //                .quickLoginWithCredentials(let credentials):
-            //            let jsonBody = try JSONEncoder().encode(credentials)
-            //            request.httpBody = jsonBody
-            
         }
         
         let finalRequest = try encoding.encode(request, with: parameters)

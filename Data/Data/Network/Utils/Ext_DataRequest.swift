@@ -8,6 +8,7 @@
 import Foundation
 import Domain
 import Alamofire
+
 extension DataRequest {
     
     public func validateRawResponseWrapper<T: Codable>(
@@ -67,7 +68,6 @@ extension DataRequest {
                                     throwable: error
                                 ))
                         )
-
                     }
                 })
         })

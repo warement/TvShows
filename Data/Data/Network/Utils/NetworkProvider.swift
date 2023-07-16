@@ -39,19 +39,5 @@ public class NetworkProviderImpl: NetworkProvider {
         return sessMan
     }()
     
-   // private var serverSentEventSession: ServerSentEventsProvider?
-    
     public init() {}
-    
-//    public func getServerSentEventSession() -> ServerSentEventsProvider {
-//
-//        guard let sseSession = serverSentEventSession
-//        else {
-//            serverSentEventSession = ServerSentEventsProviderImpl()
-//            return serverSentEventSession!
-//        }
-//
-//        return sseSession
-//    }
-    
 }

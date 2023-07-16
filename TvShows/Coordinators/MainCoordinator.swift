@@ -32,7 +32,6 @@ class MainCoordinator: Coordinator {
             let viewModel = TvShowDetailsViewModel(actionHandler: self, tvShow: action.tvShow)
             let vc = TvShowDetailsVC(viewModel: viewModel)
             navigationController.pushViewController(vc, animated: true)
-            //vc.navigationController?.navigation
         default:
             break
         }

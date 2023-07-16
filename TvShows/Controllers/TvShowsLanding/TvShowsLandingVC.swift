@@ -21,9 +21,7 @@ class TvShowsLandingVC: UIViewController {
         static let reusableCollectionViewCell = "ReusableCollectionViewCell"
         static let collectionViewHeader = "CollectionViewReusableViewHeader"
     }
-    
-    let disposeBag = DisposeBag()
-    
+        
     init(viewModel: TvShowsLandingViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -35,7 +33,6 @@ class TvShowsLandingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //viewModel.state.accept(viewModel.state.value.copy(topRatedTvShows: [TvShows()]))
         viewModel.onTriggeredEvent(event: .fetchData)
         setupCollectionView()
         setCardsLayout()
@@ -87,7 +84,6 @@ class TvShowsLandingVC: UIViewController {
     private func setCardsLayout() {
         let layout = getCompositionLayout()
         tvShowsCV.collectionViewLayout = layout
-        //tvShowsCV.reloadData()
     }
 
     func setupCollectionView() {
@@ -104,14 +100,11 @@ class TvShowsLandingVC: UIViewController {
                 bundle: Bundle(for: type(of: self))),
             forCellWithReuseIdentifier: ConstIdentifiers.reusableCollectionViewCell
         )
-        
-        //tvShowsCV.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
     }
     
     func setupObservers() {
-        
-        let tvShowsDataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, TvShows>> { dataSource, collectionView, indexPath, item in
-            guard let cell = self.tvShowsCV.dequeueReusableCell(
+        let tvShowsDataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, TvShows>> { [weak self] dataSource, collectionView, indexPath, item in
+            guard let cell = self?.tvShowsCV.dequeueReusableCell(
                 withReuseIdentifier: ConstIdentifiers.reusableCollectionViewCell,
                 for: indexPath) as? ReusableCollectionViewCell
             else { return UICollectionViewCell() }
@@ -142,18 +135,8 @@ class TvShowsLandingVC: UIViewController {
             .map { indexPath in
                 return tvShowsDataSource[indexPath]
             }
-            .subscribe(onNext: { item in
-                self.viewModel.onTriggeredEvent(event: .getTvShowDetails(id: item.id?.description ?? ""))
-                
+            .subscribe(onNext: { [weak self] item in
+                self?.viewModel.onTriggeredEvent(event: .getTvShowDetails(id: item.id?.description ?? ""))
             }).disposed(by: rx.disposeBag)
-        
     }
-}
-
-extension TvShowsLandingVC: UICollectionViewDelegateFlowLayout {
-    
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            // Return the size of your collection view cells
-            return CGSize(width: 143, height: 283)
-        }
 }

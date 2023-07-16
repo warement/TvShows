@@ -15,6 +15,7 @@
 		37362BB52A5AABAD00E2BAB7 /* TvShowDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37362BB42A5AABAD00E2BAB7 /* TvShowDetails.swift */; };
 		37362BB72A5AAEA200E2BAB7 /* TvNetworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37362BB62A5AAEA200E2BAB7 /* TvNetworks.swift */; };
 		3774D83A2A545B5600E4047E /* TvShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3774D8392A545B5600E4047E /* TvShows.swift */; };
+		37D1B2FD2A644F8C0081861F /* OverviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D1B2FC2A644F8C0081861F /* OverviewData.swift */; };
 		37E3B4112A51B94700453170 /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4102A51B94700453170 /* Domain.docc */; };
 		37E3B4172A51B94700453170 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E3B40C2A51B94700453170 /* Domain.framework */; };
 		37E3B41C2A51B94700453170 /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B41B2A51B94700453170 /* DomainTests.swift */; };
@@ -43,6 +44,7 @@
 		37362BB42A5AABAD00E2BAB7 /* TvShowDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowDetails.swift; sourceTree = "<group>"; };
 		37362BB62A5AAEA200E2BAB7 /* TvNetworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvNetworks.swift; sourceTree = "<group>"; };
 		3774D8392A545B5600E4047E /* TvShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShows.swift; sourceTree = "<group>"; };
+		37D1B2FC2A644F8C0081861F /* OverviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewData.swift; sourceTree = "<group>"; };
 		37E3B40C2A51B94700453170 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E3B40F2A51B94700453170 /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		37E3B4102A51B94700453170 /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				3774D8392A545B5600E4047E /* TvShows.swift */,
 				37362BB42A5AABAD00E2BAB7 /* TvShowDetails.swift */,
 				37362BB62A5AAEA200E2BAB7 /* TvNetworks.swift */,
+				37D1B2FC2A644F8C0081861F /* OverviewData.swift */,
 			);
 			path = TvShows;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			files = (
 				37362B852A587D3D00E2BAB7 /* BaseException.swift in Sources */,
 				37E3B4492A51BDD900453170 /* TvShowsDataContext.swift in Sources */,
+				37D1B2FD2A644F8C0081861F /* OverviewData.swift in Sources */,
 				37362B832A587D0400E2BAB7 /* PagedGenericResponse.swift in Sources */,
 				37E3B48B2A51C48400453170 /* CustomInject.swift in Sources */,
 				37E3B4112A51B94700453170 /* Domain.docc in Sources */,

@@ -19,5 +19,4 @@ open class NetworkConfigurator {
             configuration: configuration
         )
     }
-    
 }

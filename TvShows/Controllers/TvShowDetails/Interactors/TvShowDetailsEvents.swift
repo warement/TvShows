@@ -8,5 +8,6 @@
 import Foundation
 
 enum TvShowDetailsEvents {
-   
+    case getImageData
+    case getOverviewData
 }

@@ -1,13 +1,13 @@
 //
-//  Ext_Array.swift
+//  Ext_String.swift
 //  TvShows
 //
-//  Created by Lefteris Altouvas Manolou on 15/7/23.
+//  Created by Lefteris Altouvas Manolou on 16/7/23.
 //
 
 import Foundation
 
-extension Array {
+extension String {
     var isNotEmpty: Bool {
         get {
             self.isEmpty ? false : true

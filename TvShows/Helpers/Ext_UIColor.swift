@@ -22,8 +22,5 @@ public extension UIColor {
         let green = CGFloat((hexInt & 0xff00) >> 8) / 255.0
         let blue = CGFloat((hexInt & 0xff) >> 0) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: alpha)
-        
-        
-        
     }
 }

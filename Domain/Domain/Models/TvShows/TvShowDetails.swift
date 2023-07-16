@@ -101,8 +101,6 @@ public struct TvShowDetails: Codable {
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
-    
-    
 }
 
 // MARK: - CreatedBy
@@ -111,10 +109,10 @@ public struct CreatedBy: Codable {
     public let id: Int?
     public let creditId: String?
     public let name: String?
-    public let gender: String?
+    public let gender: Int?
     public let profilePath: String?
     
-    public init(id: Int? = nil, creditId: String? = nil, name: String? = nil, gender: String? = nil, profilePath: String? = nil) {
+    public init(id: Int? = nil, creditId: String? = nil, name: String? = nil, gender: Int? = nil, profilePath: String? = nil) {
         self.id = id
         self.creditId = creditId
         self.name = name
@@ -184,8 +182,6 @@ public struct EpisodeDetails: Codable {
         case seasonNumber = "season_number"
         case showId = "show_id"
         case stillPath = "still_path"
-        
-        
     }
 }
 
@@ -199,8 +195,9 @@ public struct Seasons: Codable {
     public let overview: String?
     public let posterPath: String?
     public let seasonNumber: Int?
+    public let voteAverage: Double?
     
-    public init(airDate: String? = nil, episodeCount: Int? = nil, id: Int? = nil, name: String? = nil, overview: String? = nil, posterPath: String? = nil, seasonNumber: Int? = nil) {
+    public init(airDate: String? = nil, episodeCount: Int? = nil, id: Int? = nil, name: String? = nil, overview: String? = nil, posterPath: String? = nil, seasonNumber: Int? = nil, voteAverage: Double? = nil) {
         self.airDate = airDate
         self.episodeCount = episodeCount
         self.id = id
@@ -208,6 +205,7 @@ public struct Seasons: Codable {
         self.overview = overview
         self.posterPath = posterPath
         self.seasonNumber = seasonNumber
+        self.voteAverage = voteAverage
     }
     
     enum CodingKeys: String, CodingKey {
@@ -216,6 +214,7 @@ public struct Seasons: Codable {
         case id, name, overview
         case posterPath = "poster_path"
         case seasonNumber = "season_number"
+        case voteAverage = "vote_average"
     }
 }
 

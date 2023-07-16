@@ -73,9 +73,9 @@ extension PagingDataDomainMapper {
 
 public class GenericPagingMapper<T: Codable>: PagingDataDomainMapper {
     
-    public typealias Model = T // TODO ADD DTO (API RESPONSE) MODEL
+    public typealias Model = T
     
-    public typealias DomainModel = T // TODO Add application Model
+    public typealias DomainModel = T
     
     public init() {}
     

@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Domain
+import RxSwift
+import RxCocoa
 
 class TvShowDetailsVC: UIViewController {
     
@@ -28,9 +31,11 @@ class TvShowDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupObservers()
+        viewModel.onTriggeredEvent(event: .getImageData)
+        viewModel.onTriggeredEvent(event: .getOverviewData)
         setupNavBar()
         setupBaseInfo()
-        createOverviewView()
         self.view.backgroundColor = .backgroundDefaultPrimary
     }
     
@@ -43,38 +48,45 @@ class TvShowDetailsVC: UIViewController {
     
     func setupBaseInfo() {
         let tvShow = viewModel.state.value.tvShow
-        tvShowImageView.image = UIImage(named: "imagePlaceholder")
-        tvShowImageView.layer.cornerRadius = 16.0
-        tvShowImageView.clipsToBounds = true
         tvShowTitleLbl.attributedText = tvShow.name?.with(.title2(weight: .BOLD, color: .tintPrimary))
         tvShowReleaseDateLbl.attributedText = tvShow.firstAirDate?.with(.title2(weight: .BOLD, color: .tintTertiary))
     }
+    
+    func setupImageView(imageData: Data) {
+        tvShowImageView.image = UIImage(data: imageData)
+        tvShowImageView.layer.cornerRadius = 16.0
+        tvShowImageView.clipsToBounds = true
+    }
 
-    func createOverviewView() {
+    func createOverviewView(overviewData: [OverviewData]) {
         overviewLbl.text = "Overview"
-        let tvShow = viewModel.state.value.tvShow
-        let airs = OverviewView(frame: .zero)
-        airs.setupView(title: "AIRS", description: tvShow.firstAirDate ?? "")
-        overviewStackView.addArrangedSubview(airs)
-        let runTime = OverviewView(frame: .zero)
-        runTime.setupView(title: "RUNTIME", description: tvShow.episodeRunTime?.first?.description ?? "")
-        overviewStackView.addArrangedSubview(runTime)
-        let languages = OverviewView(frame: .zero)
-        let languagesData = tvShow.languages?.joined(separator: ",") ?? ""
-        languages.setupView(title: "LANGUAGES", description: languagesData)
-        overviewStackView.addArrangedSubview(languages)
-        let genres = OverviewView(frame: .zero)
-        let genresData = tvShow.genres?.map({ $0.name ?? "" }).joined(separator: ", ") ?? ""
-        genres.setupView(title: "GENRES", description: genresData)
-        overviewStackView.addArrangedSubview(genres)
-        let synopsis = OverviewView(frame: .zero)
-        synopsis.setupView(title: "SYNOPSIS", description: tvShow.overview ?? "", isSeperatorHidden: true)
-        overviewStackView.addArrangedSubview(synopsis)
+        let numberOfData = overviewData.count
+        for (index, element) in overviewData.enumerated() {
+            let isSeperatorHidden = index == (numberOfData - 1)
+            let overviewView = OverviewView(frame: .zero)
+            overviewView.setupView(title: element.title, description: element.description, isSeperatorHidden: isSeperatorHidden)
+            overviewStackView.addArrangedSubview(overviewView)
+        }
         overviewStackView.layer.cornerRadius = 16.0
         overviewStackView.clipsToBounds = true
         overviewStackView.backgroundColor = .backgroundGroupedPrimary
     }
-
-   
-
+    
+    func setupObservers() {
+        viewModel.stateObserver
+            .observe(on: MainScheduler.instance)
+            .map { $0.imageData }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] imageData in
+                self?.setupImageView(imageData: imageData)
+            }).disposed(by: rx.disposeBag)
+        
+        viewModel.stateObserver
+            .observe(on: MainScheduler.instance)
+            .map { $0.overviewData }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] overviewData in
+                self?.createOverviewView(overviewData: overviewData)
+            }).disposed(by: rx.disposeBag)
+    }
 }

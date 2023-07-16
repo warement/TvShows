@@ -58,13 +58,16 @@ class TvShowsLandingViewModel: BaseViewModel {
     private func getPopularTvShows(dispatchGroup: DispatchGroup) {
         dispatchGroup.enter()
         Task.init {
-            let result = await tvShowsDataContext.getPopularTvShows()
-            dispatchGroup.leave()
-            switch result {
-            case .success(let popularTvShowsPageListResult):
-                state.accept(state.value.copy(popularTvShows: popularTvShowsPageListResult?.results))
-            case .failure(let error):
-                self.handleErrors(error: error)
+            let result = await self.tvShowsDataContext.getPopularTvShows()
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                dispatchGroup.leave()
+                switch result {
+                case .success(let popularTvShowsPageListResult):
+                    self.state.accept(self.state.value.copy(popularTvShows: popularTvShowsPageListResult?.results))
+                case .failure(let error):
+                    self.handleErrors(error: error)
+                }
             }
         }
     }
@@ -72,13 +75,16 @@ class TvShowsLandingViewModel: BaseViewModel {
     private func getTopRatedTvShows(dispatchGroup: DispatchGroup) {
         dispatchGroup.enter()
         Task.init {
-            let result = await tvShowsDataContext.getTopRatedTvShows()
-            dispatchGroup.leave()
-            switch result {
-            case .success(let topRatedTvShowsPageListResult):
-                state.accept(state.value.copy(topRatedTvShows: topRatedTvShowsPageListResult?.results))
-            case .failure(let error):
-                self.handleErrors(error: error)
+            let result = await self.tvShowsDataContext.getTopRatedTvShows()
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                dispatchGroup.leave()
+                switch result {
+                case .success(let topRatedTvShowsPageListResult):
+                    self.state.accept(self.state.value.copy(topRatedTvShows: topRatedTvShowsPageListResult?.results))
+                case .failure(let error):
+                    self.handleErrors(error: error)
+                }
             }
         }
     }
@@ -86,42 +92,33 @@ class TvShowsLandingViewModel: BaseViewModel {
     private func getOnTheAirTvShows(dispatchGroup: DispatchGroup) {
         dispatchGroup.enter()
         Task.init {
-            let result = await tvShowsDataContext.getOnTheAirTvShows()
-            dispatchGroup.leave()
-            switch result {
-            case .success(let onTheAirTvShowsPageListResult):
-                state.accept(state.value.copy(onTheAirTvShows: onTheAirTvShowsPageListResult?.results))
-            case .failure(let error):
-                self.handleErrors(error: error)
+            let result = await self.tvShowsDataContext.getOnTheAirTvShows()
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                dispatchGroup.leave()
+                switch result {
+                case .success(let onTheAirTvShowsPageListResult):
+                    self.state.accept(self.state.value.copy(onTheAirTvShows: onTheAirTvShowsPageListResult?.results))
+                case .failure(let error):
+                    self.handleErrors(error: error)
+                }
             }
         }
     }
     
     private func getTvShowDetails(id: String) {
-        let tvShow: TvShowDetails = TvShowDetails(episodeRunTime: [55], firstAirDate: "2023-06-21", genres: [Genres(id: 18, name: "Drama")], id: 114472, inProduction: true, languages: ["en"], name: "Secret Invasion", numberOfEpisodes: 6, numberOfSeasons: 1, overview: "Nick Fury and Talos discover a faction of shapeshifting Skrulls who have been infiltrating Earth for years", status: "Returning Series", tagline: "Who do you trust?", type: "Miniseries", voteAverage: 7.4, voteCount: 281)
-        actionHandler?.handleAction(action: GoToTvShowDetails(tvShow: tvShow))
-//        Task.init {
-//            let result = await tvShowsDataContext.getTvShowDetails(id: id)
-//            switch result {
-//            case .success(let tvShowDetails):
-//                print("tvShow details are: \(String(describing: tvShowDetails))")
-//                actionHandler?.handleAction(action: GoToTvShowDetails())
-//            case .failure(let error):
-//                self.handleErrors(error: error)
-//            }
-//        }
-    }
-    
-    private func getTvShowImage(size: String, path: String) async -> Data? {
-        let result = await tvShowsDataContext.getTvShowImage(size: size, path: path)
-        switch result {
-        case .success(let data):
-            print(data)
-            return data
-            //state.accept(state.value.copy(imageData: data))
-        case .failure(let error):
-            self.handleErrors(error: error)
-            return nil
+        state.accept(state.value.copy(isLoading: true))
+        Task.init {
+            let result = await self.tvShowsDataContext.getTvShowDetails(id: id)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch result {
+                case .success(let tvShowDetails):
+                    self.actionHandler?.handleAction(action: GoToTvShowDetails(tvShow: tvShowDetails ?? TvShowDetails()))
+                case .failure(let error):
+                    self.handleErrors(error: error)
+                }
+            }
         }
-    }
+    }    
 }

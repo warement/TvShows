@@ -20,22 +20,32 @@ import RxDataSources
 class TvShowDetailsState: BaseState {
     let isLoading: Bool
     let tvShow: TvShowDetails
+    let imageData: Data
+    let overviewData: [OverviewData]
     
     init (
         isLoading: Bool = false,
-        tvShow: TvShowDetails = TvShowDetails()
+        tvShow: TvShowDetails = TvShowDetails(),
+        imageData: Data = Data(),
+        overviewData: [OverviewData] = []
     ) {
         self.isLoading = isLoading
         self.tvShow = tvShow
+        self.imageData = imageData
+        self.overviewData = overviewData
     }
     
     func copy(
         isLoading: Bool? = nil,
-        tvShow: TvShowDetails? = nil
+        tvShow: TvShowDetails? = nil,
+        imageData: Data? = nil,
+        overviewData: [OverviewData]? = nil
     ) -> TvShowDetailsState {
         return TvShowDetailsState(
             isLoading: isLoading ?? self.isLoading,
-            tvShow: tvShow ?? self.tvShow
+            tvShow: tvShow ?? self.tvShow,
+            imageData: imageData ?? self.imageData,
+            overviewData: overviewData ?? self.overviewData
         )
     }
     

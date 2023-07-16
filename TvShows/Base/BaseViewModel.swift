@@ -13,7 +13,6 @@ import Domain
 // MARK: - BaseState
 public protocol BaseState {
     var isLoading: Bool { get }
-    //    var isOnline: Bool { get }
     
     func baseCopy(
         isLoading: Bool?
@@ -65,74 +64,10 @@ extension BaseErrorHandler {
     
     @discardableResult
     public func handleErrors(
-        error: BaseException//,
-        //config: HandleErrorsConfig = HandleErrorsConfig.Builder().build()
+        error: BaseException
     ) -> Bool {
-        //        // let genericErrorMessage = config.genericErrorMessage
-        //
-        //
-        //        // MARK: Handle Unauthorized
-        //        else if error.errorCode == 401 {
-        //
-        //            // custom handling
-        //            guard config.handleUnauthorize == nil else {
-        //                config.handleUnauthorize?()
-        //                return true
-        //            }
-        //
-        //            if !PlatformDataContextImpl.shared.authToken.isEmpty {
-        //                self.logUserOut(isHard: true)
-        //            }
-        //
-        //            return true
-        //        }
-        //        // MARK: Handle Unenrolled
-        //        else if error.errorCode == 403 {
-        //
-        //            // custom handling
-        //            guard config.handleUnenroll == nil else {
-        //                config.handleUnenroll?()
-        //                return true
-        //            }
-        //
-        //            if !PlatformDataContextImpl.shared.authToken.isEmpty {
-        //                self.logUserOut(isHard: true)
-        //            }
-        //
-        //            return true
-        //        }
-        //        // MARK: Handle 6 months pass expiration
-        //        else if error.errorCode == 202, let errorBody = error.exception {
-        //
-        //            // custom handling
-        //            guard config.handlePassExpiration == nil else {
-        //                config.handlePassExpiration?()
-        //                return true
-        //            }
-        //
-        //            self.handlePasswordExpiration(exceptions: errorBody)
-        //
-        //            return true
-        //        }
-        //        // MARK: default error handling.
-        //        else {
-        //
-        //            // custom handling
-        //            guard config.defaultHandling == nil else {
-        //                config.defaultHandling?()
-        //                return true
-        //            }
-        //
-        //            AlertHelper.shared.showToastOnTop(message: genericErrorMessage, type: .error)
-        //
-        //            return true
-        //        }
-        //
-        //        return false
-        //    }
         print(error.localizedDescription)
         return true
-        
     }
 }
 

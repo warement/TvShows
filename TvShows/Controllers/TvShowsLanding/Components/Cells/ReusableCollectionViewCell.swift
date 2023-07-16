@@ -24,12 +24,9 @@ class ReusableCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(tvShow: TvShows) {
-        
         guard let imageUrl: URL = (
             URL(string: ConstantKeys.imagesBaseUrl)?.appendingPathComponent("/\(ImageSizes.PosterSizes.w342)\(tvShow.posterPath ?? "")")
         ) else { return }
-  
         tvShowImageView.af.setImage(withURL: imageUrl)
     }
-
 }
